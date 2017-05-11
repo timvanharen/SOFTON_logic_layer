@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\Gebruiker\CoIDE -I..\..\..\..\..\Users\Gebruiker\CoIDE\workspace\VGA_core_M4\logic_layer -I..\..\..\..\..\Users\Gebruiker\CoIDE\workspace\VGA_core_M4\cmsis_lib -I..\..\..\..\..\Users\Gebruiker\CoIDE\workspace\VGA_core_M4\cmsis -I..\..\..\..\..\Users\Gebruiker\CoIDE\workspace -I..\..\..\..\..\Users\Gebruiker\CoIDE\workspace\VGA_core_M4\cmsis_boot -I..\..\..\..\..\Users\Gebruiker\CoIDE\workspace\VGA_core_M4 -I..\..\..\..\..\Users\Gebruiker\CoIDE\workspace\VGA_core_M4\cmsis_lib\include -I..\..\..\..\..\Users\Gebruiker\CoIDE\workspace\VGA_core_M4\Presentation_layer -I..\..\..\..\..\Users\Gebruiker\CoIDE\workspace\VGA_core_M4\ub_lib">
+      <target file="stm32f4xx_gpio.o" lastModified="15bf4a0d0a7">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="152a1cbad50"/>
+      </target>
+      <target file="stm32_ub_vga_screen.o" lastModified="15bf4a0da47">
+         <source file="..\..\..\ub_lib\stm32_ub_vga_screen.c" lastModified="153c8fea930"/>
+      </target>
+      <target file="stm32f4xx_dma.o" lastModified="15bf4a0d8af">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma.c" lastModified="152a1cbad50"/>
+      </target>
+      <target file="stm32f4xx_flash.o" lastModified="15bf4a0d59b">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="15be7749b95"/>
+      </target>
+      <target file="Draw_request.o" lastModified="15bf4ffea3f">
+         <source file="..\..\..\logic_layer\Draw_request.c" lastModified="15bf4ffdcbf"/>
+      </target>
+      <target file="stm32f4xx_tim.o" lastModified="15bf4a0dfbf">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="152a1cbad50"/>
+      </target>
+      <target file="system_stm32f4xx.o" lastModified="15bf4a0d6ee">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="152a1cbad50"/>
+      </target>
+      <target file="startup_stm32f4xx.o" lastModified="15bd3ac0190">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="152a1cbad50"/>
+      </target>
+      <target file="main.o" lastModified="15bf4f18b41">
+         <source file="..\..\..\main.c" lastModified="15bf4eec1b0"/>
+      </target>
+      <target file="stm32f4xx_rcc.o" lastModified="15bf4a0ce69">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="152a1cbad50"/>
+      </target>
+      <target file="apllication.o" lastModified="15bf4c2ab3d">
+         <source file="..\..\..\Presentation_layer\apllication.c" lastModified="15bd3a878f8"/>
+      </target>
+      <target file="misc.o" lastModified="15bf4a0dbc7">
+         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="152a1cbad50"/>
+      </target>
+   </processor>
+</history>
