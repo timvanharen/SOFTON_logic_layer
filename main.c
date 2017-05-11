@@ -32,6 +32,7 @@ int main(void)
 	i=0;
   while(1)
   {
+  		// ishen chek 123 test 123
 	  //cmd prompt is openend
 	  //wait for rs232 string
 	  Draw_Ellipse(160, 120, 100, 10, 1, 1, VGA_COL_RED);
