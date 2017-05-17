@@ -15,6 +15,35 @@ void Draw_Line(unsigned short xp, unsigned short yp, unsigned short angle_deg, u
 
 }
 
+void DrawHorLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color)
+{
+	int i;
+	for(i=0; i<length; i++,xp++)
+		UB_VGA_SetPixel(xp, yp, color);
+}
+
+void DrawVerLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color)
+{
+	int t;
+	for(t=0; t<length; t++,yp++)
+		UB_VGA_SetPixel(xp, yp, color);
+}
+
+void DrawEmptySquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, uint8_t color)
+{
+	DrawHorLine(xp,yp,width,color);
+	DrawVerLine(xp+width,yp,hight,color);
+	DrawHorLine(xp,yp+hight,width,color);
+	DrawVerLine(xp,yp,hight,color);
+}
+
+void DrawFullSquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, uint8_t color)
+{
+	int r;
+	for(r=0;r<hight;r++,yp++)
+		DrawHorLine(xp,yp,width, color);
+}
+
 void Write_Text(unsigned short xp, unsigned short yp, unsigned short string, char *font, unsigned short size, unsigned short colour)
 {
 
