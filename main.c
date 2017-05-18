@@ -15,29 +15,30 @@
 #include <math.h>
 #include "Draw_request.h"
 
-int main(void)
+
+
+int main()
 {
-
-	//  uint32_t n;
-
 	SystemInit(); // System speed to 168MHz
-
 	UB_VGA_Screen_Init(); // Init VGA-Screen
 
-	UB_VGA_FillScreen(VGA_COL_BLACK);
-	UB_VGA_SetPixel(10,10,10);
+//	UB_VGA_FillScreen(VGA_COL_BLACK);
+//	UB_VGA_SetPixel(10,10,10);
 
-  	//Fill_BitMap();
-	int i,j;
-	i=0;
   while(1)
   {
+<<<<<<< HEAD
 	  //cmd prompt is openend
 	  //wait for rs232 string
 	  Draw_Ellipse(160, 120, 100, 10, 1, 1, VGA_COL_RED);
 	  //Put_Bitmap();
 	  i++;
 	  for(j=0; j<19992999; j++);
+=======
+	  Bitmap_to_VGA();
+
+//	  Draw_Ellipse(160, 120, 100, 10, 1, 1, VGA_COL_RED);
+>>>>>>> origin/master
   }
 }
 
