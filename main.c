@@ -27,8 +27,7 @@ int main()
 
   while(1)
   {
-	  Bitmap_to_VGA();
-
+	  Bitmap_to_VGA(0,0);
 //	  Draw_Ellipse(160, 120, 100, 10, 1, 1, VGA_COL_RED);
   }
 }
