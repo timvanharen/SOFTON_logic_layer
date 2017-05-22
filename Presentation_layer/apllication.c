@@ -13,12 +13,17 @@ statusFlag Processing_input_request(char * inputString)
 	return CompleteFlag;
 }
 
-/*statusFlag Initialize_IO()
-{
-	return CompleteFlag;
-}*/
+//void demo_apps()
+//{
+//	k = 160+50*sin(i/2);
+//	m = 120+50*cos(i/2);
+//	if (i%10==0) {
+//		l++;
+//	  }
+//	Draw_Ellipse(k, m, 50, 50, 1, 1, l);
+//}
 
-static void delay_init(void)
+void delay_init()
 {
 	RCC_ClocksTypeDef Clocks;
 	RCC_GetClocksFreq(&Clocks);

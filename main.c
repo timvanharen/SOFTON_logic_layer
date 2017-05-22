@@ -14,31 +14,24 @@
 #include "stm32_ub_vga_screen.h"
 #include <math.h>
 #include "Draw_request.h"
+#include "apllication.h"
 
-
+int i,j=0;
 
 int main()
 {
 	SystemInit(); // System speed to 168MHz
 	UB_VGA_Screen_Init(); // Init VGA-Screen
-
-//	UB_VGA_FillScreen(VGA_COL_BLACK);
-//	UB_VGA_SetPixel(10,10,10);
+	delay_init();
+	TIMER3_Initialize();
 
   while(1)
   {
-<<<<<<< HEAD
-	  //cmd prompt is openend
-	  //wait for rs232 string
-	  Draw_Ellipse(160, 120, 100, 10, 1, 1, VGA_COL_RED);
-	  //Put_Bitmap();
-	  i++;
-	  for(j=0; j<19992999; j++);
-=======
-	  Bitmap_to_VGA();
-
-//	  Draw_Ellipse(160, 120, 100, 10, 1, 1, VGA_COL_RED);
->>>>>>> origin/master
+	  Draw_Ellipse(80, 120, 50, 50, 0, 2, VGA_COL_BLUE);
+	  wait_msec(1000);
+	  Draw_Ellipse(240, 120, 70, 30, 1, 0, VGA_COL_RED);
+	  wait_msec(5000);
+	  Clear_screen(VGA_COL_BLACK);
   }
 }
 
