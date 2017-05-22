@@ -25,13 +25,22 @@ int main()
 	delay_init();
 	TIMER3_Initialize();
 
+	  Bitmap_to_VGA(0,0,1);
   while(1)
   {
+<<<<<<< HEAD
 	  Draw_Ellipse(80, 120, 50, 50, 0, 2, VGA_COL_BLUE);
 	  wait_msec(1000);
 	  Draw_Ellipse(240, 120, 70, 30, 1, 0, VGA_COL_RED);
 	  wait_msec(5000);
 	  Clear_screen(VGA_COL_BLACK);
+=======
+
+//	  DrawHorLine(10,10,100,100, 3);
+//	  DrawVerLine(20,20,100,150, 5);
+//	  DrawEmptySquare(50, 50, 75, 3,3);
+//	  Draw_Ellipse(160, 120, 100, 10, 1, 1, VGA_COL_RED);
+>>>>>>> 223291b0d9d432a9893e6a2f06a453670782d593
   }
 }
 
