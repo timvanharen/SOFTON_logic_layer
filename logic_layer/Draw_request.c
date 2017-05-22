@@ -42,6 +42,65 @@ void wait_msec(unsigned int msec)
 	while(TIM_GetCounter(TIM3)<msec);
 }
 
+void Draw_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t color)
+{
+	signed int dx,dy,px,py,dxabs,dyabs,i,k;
+	float slope;
+
+	dx=x2-x1;		/* the horizontal distance of the line */
+	dy=y2-y1;		/* the vertical distance of the line */
+	dxabs=fabs(dx);		//abs(dx); betekent de absolute waarde van
+	dyabs=fabs(dy);		//abs(dy); same
+
+	if (dxabs>=dyabs) /* the line is more horizontal than vertical */
+	{
+		slope=(float)dy / (float)dx;
+		if(dx<0x80000000)	/*x is positive*/
+		{
+			for(i=0;i!=dx;i++)
+			{
+				px=i+x1;
+				py=slope*i+y1;
+				UB_VGA_SetPixel(px,py,color);
+				for(k=0;k<100000;k++);
+			}
+		}
+		else				/*x is negative*/
+		{
+			for(i=0;i!=dxabs;i++)
+			{
+				px=x1-i;
+				py=y1-slope*i;
+				UB_VGA_SetPixel(px,py,color);
+				for(k=0;k<100000;k++);
+			}
+		}
+	}
+	else /* the line is more vertical than horizontal */
+	{
+		slope=(float)dx / (float)dy;
+		if(dy<0x80000000)	/*y is positive*/
+		{
+			for(i=0;i!=dy;i++)
+			{
+				px=slope*i+x1;
+				py=y1+i;
+				UB_VGA_SetPixel(px,py,color);
+				for(k=0;k<100000;k++);
+			}
+		}else				/*y is negative*/
+		{
+			for(i=0;i!=dyabs;i++)
+			{
+				px=x1-slope*i;
+				py=y1-i;
+				UB_VGA_SetPixel(px,py,color);
+				for(k=0;k<100000;k++);
+			}
+		}
+	}
+}
+
 void DrawHorLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color, uint8_t width_y) // x-coordinaat
 {
 	int i;
