@@ -17,6 +17,7 @@
 #include "apllication.h"
 
 int i,j=0;
+char c;
 
 int main()
 {
@@ -24,15 +25,18 @@ int main()
 	UB_VGA_Screen_Init(); // Init VGA-Screen
 	delay_init();
 	TIMER3_Initialize();
+	UART_init();
 
-	  Bitmap_to_VGA(0,0,1);
+//	Bitmap_to_VGA(0,0,1);
   while(1)
   {
-	  Draw_Ellipse(80, 120, 50, 50, 0, 2, VGA_COL_BLUE);
-	  wait_msec(1000);
-	  Draw_Ellipse(240, 120, 70, 30, 1, 0, VGA_COL_RED);
-	  wait_msec(5000);
-	  Clear_screen(VGA_COL_BLACK);
+	  UART_puts("hello world");
+//	  UART_putchar(c);
+//	  Draw_Ellipse(80, 120, 50, 50, 0, 2, VGA_COL_BLUE);
+//	  wait_msec(1000);
+//	  Draw_Ellipse(240, 120, 70, 30, 1, 0, VGA_COL_RED);
+//	  wait_msec(5000);
+//	  Clear_screen(VGA_COL_BLACK);
   }
 }
 

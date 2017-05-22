@@ -7,12 +7,11 @@
 #include "stm32f4xx_rcc.h"
 #include "uitvoer.h"
 
-static int i,j=0;
+static int i=0;
 short EllipseXPosArray[1000];
 short EllipseYPosArray[1000];
 
 
-//static BitMapImage image[VGA_DISPLAY_Y*VGA_DISPLAY_X];
 void TIMER3_Initialize() //delay timer
 {
 	int G_CLK;
@@ -133,10 +132,6 @@ void DrawFullSquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, uint
 		DrawHorLine(xp,yp,width, color, width_y);
 }
 
-void Write_Text(unsigned short xp, unsigned short yp, unsigned short string, char *font, unsigned short size, unsigned short colour)
-{
-
-}
 
 void Draw_Ellipse(unsigned short xp, unsigned short yp, unsigned short r1, unsigned short r2, short fill, unsigned short thickness, unsigned short colour)
 {

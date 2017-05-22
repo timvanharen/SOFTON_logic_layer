@@ -52,7 +52,7 @@
 */
 
 //#include  "os_cpu.h"
-#include  "os_cfg.h"
+//#include  "os_cfg.h"
 
 /*
 *********************************************************************************************************
@@ -74,11 +74,11 @@
 */
 
 #include "uart.h"
-#include "lcd.h"
-#include "delay.h"
-#include "leds.h"
-#include "buzzer.h"
-#include "keys.h"
+//#include "lcd.h"
+//#include "delay.h"
+//#include "leds.h"
+//#include "buzzer.h"
+//#include "keys.h"
 
 #define TRUE		1
 #define FALSE		0
