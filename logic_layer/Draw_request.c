@@ -3,18 +3,15 @@
 #include "Draw_request.h"
 #include "stm32_ub_vga_screen.h"
 #include <math.h>
-<<<<<<< HEAD
 #include "apllication.h"
 #include "stm32f4xx_rcc.h"
-=======
 #include "uitvoer.h"
->>>>>>> 223291b0d9d432a9893e6a2f06a453670782d593
 
 static int i,j=0;
 short EllipseXPosArray[1000];
 short EllipseYPosArray[1000];
 
-<<<<<<< HEAD
+
 //static BitMapImage image[VGA_DISPLAY_Y*VGA_DISPLAY_X];
 void TIMER3_Initialize() //delay timer
 {
@@ -44,14 +41,6 @@ void wait_msec(unsigned int msec)
 	TIM_SetCounter(TIM3, 0);
 	while(TIM_GetCounter(TIM3)<msec);
 }
-=======
->>>>>>> 223291b0d9d432a9893e6a2f06a453670782d593
-
-
-//void Draw_Line(unsigned short xp, unsigned short yp, unsigned short angle_deg, unsigned short len, unsigned short thickness, unsigned short colour)
-//{
-//
-//}
 
 void DrawHorLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color, uint8_t width_y) // x-coordinaat
 {
@@ -85,15 +74,11 @@ void DrawFullSquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, uint
 		DrawHorLine(xp,yp,width, color, width_y);
 }
 
-<<<<<<< HEAD
-=======
 void Write_Text(unsigned short xp, unsigned short yp, unsigned short string, char *font, unsigned short size, unsigned short colour)
 {
 
 }
 
-
->>>>>>> 223291b0d9d432a9893e6a2f06a453670782d593
 void Draw_Ellipse(unsigned short xp, unsigned short yp, unsigned short r1, unsigned short r2, short fill, unsigned short thickness, unsigned short colour)
 {
 	unsigned int len = 0;
@@ -114,10 +99,10 @@ void Draw_Ellipse(unsigned short xp, unsigned short yp, unsigned short r1, unsig
 	if(fill==0) {
 		if(thickness>1) {
 			for(i=0; i < r1*2; i++)
-				DrawVerLine(EllipseXPosArray[i], EllipseYPosArray[i]+(thickness/2), thickness, colour);
+				DrawVerLine(EllipseXPosArray[i], EllipseYPosArray[i]+(thickness/2), thickness, colour, 1);
 
 			for(i=r1*2; i < r1*4; i++)
-				DrawVerLine(EllipseXPosArray[i], EllipseYPosArray[i]-(thickness/2), thickness, colour);
+				DrawVerLine(EllipseXPosArray[i], EllipseYPosArray[i]-(thickness/2), thickness, colour, 1);
 		} else {
 			for(i=0; i < r1*4; i++)
 				UB_VGA_SetPixel(EllipseXPosArray[i], EllipseYPosArray[i], colour);
@@ -125,12 +110,12 @@ void Draw_Ellipse(unsigned short xp, unsigned short yp, unsigned short r1, unsig
 	} else {
 		for(i=0; i < r1*2; i++) {
 			len = yp-EllipseYPosArray[i];
-			DrawVerLine(EllipseXPosArray[i], EllipseYPosArray[i], len, colour);
+			DrawVerLine(EllipseXPosArray[i], EllipseYPosArray[i], len, colour, 1);
 		}
 
 		for(i=r1*2; i <= r1*4; i++) {
 			len = EllipseYPosArray[i]-yp;
-			DrawVerLine(EllipseXPosArray[i], yp, len, colour);
+			DrawVerLine(EllipseXPosArray[i], yp, len, colour, 1);
 		}
 	}
 }
@@ -144,8 +129,7 @@ void Clear_screen(unsigned short color)
 {
 	UB_VGA_FillScreen(color);
 }
-<<<<<<< HEAD
-=======
+
 /*
  * The function Bitmap_to_VGA receives 2 parameters that define the begin position of the image on the screen.
  * This position is the left top corner of the image.
@@ -191,4 +175,3 @@ void Bitmap_to_VGA(uint8_t xp, uint8_t yp, uint8_t repeat)
 
 }
 
->>>>>>> 223291b0d9d432a9893e6a2f06a453670782d593
