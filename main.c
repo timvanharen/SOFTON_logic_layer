@@ -25,9 +25,13 @@ int main()
 //	UB_VGA_FillScreen(VGA_COL_BLACK);
 //	UB_VGA_SetPixel(10,10,10);
 
+	  Bitmap_to_VGA(0,0,1);
   while(1)
   {
-	  Bitmap_to_VGA(0,0);
+
+//	  DrawHorLine(10,10,100,100, 3);
+//	  DrawVerLine(20,20,100,150, 5);
+//	  DrawEmptySquare(50, 50, 75, 3,3);
 //	  Draw_Ellipse(160, 120, 100, 10, 1, 1, VGA_COL_RED);
   }
 }

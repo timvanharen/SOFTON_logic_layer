@@ -22,5 +22,5 @@ void Draw_Ellipse(unsigned short xp, unsigned short yp, unsigned short r1, unsig
 void Fill_BitMap();
 void Put_Bitmap();
 void Clear_screen();
-void Bitmap_to_VGA(uint8_t xp, uint8_t yp);
+void Bitmap_to_VGA(uint8_t xp, uint8_t yp, uint8_t repeat);
 #endif // DRAW_REQUEST_H

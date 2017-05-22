@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dependencies>
    <includePath signature="/I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\ub_lib /I..\..\..\..\..\Users\Mansur\Documents\GitHub /I..\..\..\..\..\Users\Mansur\Documents /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_boot /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\Presentation_layer /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\logic_layer /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_lib /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_lib\include">
-      <source file="..\..\..\logic_layer\Draw_request.c" lastModified="15c20da3f66">
+      <source file="..\..\..\logic_layer\Draw_request.c" lastModified="15c2c6b3018">
          <include file="..\..\..\main.h"/>
          <include file="..\..\..\logic_layer\Draw_request.h"/>
          <include file="..\..\..\ub_lib\stm32_ub_vga_screen.h"/>
@@ -29,7 +29,7 @@
       <source file="..\..\..\ub_lib\stm32_ub_vga_screen.c" lastModified="15bf785bfb6">
          <include file="..\..\..\ub_lib\stm32_ub_vga_screen.h"/>
       </source>
-      <source file="..\..\..\logic_layer\uitvoer.h" lastModified="15c217a2751">
+      <source file="..\..\..\logic_layer\uitvoer.h" lastModified="15c2f25e9b7">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
       <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="15bf785bf58">
@@ -81,11 +81,6 @@
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h" lastModified="15bf785bf67">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\main.c" lastModified="15c1d767f88">
-         <include file="..\..\..\main.h"/>
-         <include file="..\..\..\ub_lib\stm32_ub_vga_screen.h"/>
-         <include file="..\..\..\logic_layer\Draw_request.h"/>
-      </source>
       <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="15bf785c311">
       </source>
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="15bf785bfa6">
@@ -100,7 +95,7 @@
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\logic_layer\Draw_request.h" lastModified="15c1d767b94">
+      <source file="..\..\..\logic_layer\Draw_request.h" lastModified="15c2c65854d">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
       <source file="..\..\..\cmsis\core_cm4_simd.h" lastModified="15bf785c301">

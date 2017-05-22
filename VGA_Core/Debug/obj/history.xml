@@ -1,43 +1,43 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\ub_lib -I..\..\..\..\..\Users\Mansur\Documents\GitHub -I..\..\..\..\..\Users\Mansur\Documents -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_boot -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\Presentation_layer -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\logic_layer -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_lib -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_lib\include">
-      <target file="syscalls.o" lastModified="15c20de4341">
+      <target file="syscalls.o" lastModified="15c2c665596">
          <source file="..\..\..\syscalls\syscalls.c" lastModified="15c168d5466"/>
       </target>
-      <target file="stm32f4xx_gpio.o" lastModified="15c20de41bd">
+      <target file="stm32f4xx_gpio.o" lastModified="15c2c66543e">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="15bf785bf96"/>
       </target>
-      <target file="stm32_ub_vga_screen.o" lastModified="15c20de4425">
+      <target file="stm32_ub_vga_screen.o" lastModified="15c2c665651">
          <source file="..\..\..\ub_lib\stm32_ub_vga_screen.c" lastModified="15bf785bfb6"/>
       </target>
-      <target file="stm32f4xx_dma.o" lastModified="15c20de43b1">
+      <target file="stm32f4xx_dma.o" lastModified="15c2c6655f3">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma.c" lastModified="15bf785bf87"/>
       </target>
-      <target file="stm32f4xx_flash.o" lastModified="15c20de42a1">
+      <target file="stm32f4xx_flash.o" lastModified="15c2c665509">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="15bf785bf96"/>
       </target>
-      <target file="Draw_request.o" lastModified="15c217a2ab5">
-         <source file="..\..\..\logic_layer\Draw_request.c" lastModified="15c20da3b7e"/>
+      <target file="Draw_request.o" lastModified="15c2f25ed22">
+         <source file="..\..\..\logic_layer\Draw_request.c" lastModified="15c2c6b2c30"/>
       </target>
-      <target file="stm32f4xx_tim.o" lastModified="15c20de4569">
+      <target file="stm32f4xx_tim.o" lastModified="15c2c66576b">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="15bf785bfa6"/>
       </target>
-      <target file="system_stm32f4xx.o" lastModified="15c20de42f1">
+      <target file="system_stm32f4xx.o" lastModified="15c2c665557">
          <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="15bf785bf58"/>
       </target>
-      <target file="startup_stm32f4xx.o" lastModified="15c20de4051">
+      <target file="startup_stm32f4xx.o" lastModified="15c2c6652d7">
          <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="15bf785bf39"/>
       </target>
-      <target file="main.o" lastModified="15c20de40c5">
-         <source file="..\..\..\main.c" lastModified="15c1d767ba0"/>
+      <target file="main.o" lastModified="15c2f283c5c">
+         <source file="..\..\..\main.c" lastModified="15c2f283a58"/>
       </target>
-      <target file="apllication.o" lastModified="15c20de4221">
+      <target file="apllication.o" lastModified="15c2c66548c">
          <source file="..\..\..\Presentation_layer\apllication.c" lastModified="15bf785beac"/>
       </target>
-      <target file="stm32f4xx_rcc.o" lastModified="15c20de4151">
+      <target file="stm32f4xx_rcc.o" lastModified="15c2c6653d1">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="15bf785bfa6"/>
       </target>
-      <target file="misc.o" lastModified="15c20de4481">
+      <target file="misc.o" lastModified="15c2c6656af">
          <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="15bf785bf87"/>
       </target>
    </processor>
