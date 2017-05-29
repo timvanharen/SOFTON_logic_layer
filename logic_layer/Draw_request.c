@@ -201,10 +201,10 @@ void Bitmap_to_VGA(uint8_t xp, uint8_t yp, uint8_t repeat)
 	{
 		for (x_counter=xp; x_counter<IMAGE_WIDTH+xp; x_counter++)  //for loop for horizontal pixels of image
 		{
+//				UB_VGA_SetPixel(x_counter, y_counter);
 			i++; // i loopt tot Image_heigth*Image_width
 
 			if (i==IMAGE_HEIGHT*IMAGE_WIDTH)	// Print duplicate of image next to it
-//				UB_VGA_SetPixel(x_counter, y_counter, 0);
 
 				for(j=0; j<5000; j++)
 				{
