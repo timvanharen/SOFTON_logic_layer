@@ -27,10 +27,10 @@ int main()
 	TIMER3_Initialize();
 	UART_init();
 
-//	Bitmap_to_VGA(0,0,1);
+	Bitmap_to_VGA(0,0,5);
   while(1)
   {
-	  UART_puts("hello world");
+//	  UART_puts("hello world");
 //	  UART_putchar(c);
 //	  Draw_Ellipse(80, 120, 50, 50, 0, 2, VGA_COL_BLUE);
 //	  wait_msec(1000);
