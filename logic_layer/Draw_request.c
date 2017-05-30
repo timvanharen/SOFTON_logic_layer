@@ -41,66 +41,77 @@ void wait_msec(unsigned int msec)
 	while(TIM_GetCounter(TIM3)<msec);
 }
 
-void Draw_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t color)
+signed int Draw_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t width uint8_t color)
 {
-	signed int dx,dy,px,py,dxabs,dyabs,i,k;
+	signed int dx,dy,px,py,dxabs,dyabs,i,j;
 	float slope;
 
-	dx=x2-x1;		/* the horizontal distance of the line */
-	dy=y2-y1;		/* the vertical distance of the line */
+	dx=x2-x1;		// the horizontal distance of the line
+	dy=y2-y1;		// the vertical distance of the line
 	dxabs=fabs(dx);		//abs(dx); betekent de absolute waarde van
 	dyabs=fabs(dy);		//abs(dy); same
 
-	if (dxabs>=dyabs) /* the line is more horizontal than vertical */
+	if (dxabs>=dyabs)	// the line is more horizontal than vertical
 	{
 		slope=(float)dy / (float)dx;
-		if(dx<0x80000000)	/*x is positive*/
+		if(dx<0x80000000)	// x is positive
 		{
 			for(i=0;i!=dx;i++)
 			{
 				px=i+x1;
-				py=slope*i+y1;
-				UB_VGA_SetPixel(px,py,color);
-				for(k=0;k<100000;k++);
+				for(j=0;j<width;j++)
+				{
+					py=slope*i+y1+j;
+					UB_VGA_SetPixel(px,py,color);
+				}
 			}
 		}
-		else				/*x is negative*/
+		else			// x is negative
 		{
 			for(i=0;i!=dxabs;i++)
 			{
 				px=x1-i;
-				py=y1-slope*i;
-				UB_VGA_SetPixel(px,py,color);
-				for(k=0;k<100000;k++);
+				for(j=0;j<width;j++)
+				{
+					py=j+y1-slope*i;
+					UB_VGA_SetPixel(px,py,color);
+				}
 			}
 		}
+		return dxabs;
 	}
-	else /* the line is more vertical than horizontal */
+	else 			// the line is more vertical than horizontal
 	{
+//		UART_puts("more ver than hor\r");
 		slope=(float)dx / (float)dy;
-		if(dy<0x80000000)	/*y is positive*/
+		if(dy<0x80000000)	// y is positive
 		{
 			for(i=0;i!=dy;i++)
 			{
-				px=slope*i+x1;
 				py=y1+i;
-				UB_VGA_SetPixel(px,py,color);
-				for(k=0;k<100000;k++);
+				for(j=0;j<width;j++)
+				{
+					px=slope*i+x1+j;
+					UB_VGA_SetPixel(px,py,color);
+				}
 			}
-		}else				/*y is negative*/
+		}else			// y is negative
 		{
 			for(i=0;i!=dyabs;i++)
 			{
-				px=x1-slope*i;
 				py=y1-i;
-				UB_VGA_SetPixel(px,py,color);
-				for(k=0;k<100000;k++);
+				for(j=0;j<width;j++)
+				{
+					px=j+x1-slope*i;
+					UB_VGA_SetPixel(px,py,color);
+				}
 			}
 		}
+		return dyabs;
 	}
 }
 
-void DrawHorLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color, uint8_t width_y) // x-coordinaat
+void Draw_HorLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color) // x-coordinaat
 {
 	int i;
 	int j;
@@ -109,7 +120,7 @@ void DrawHorLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color, uint8_
 		UB_VGA_SetPixel(xp, yp+j, color);
 }
 
-void DrawVerLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color, uint8_t width_x)
+void Draw_VerLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color)
 {
 	int t;
 	for(t=0; t<length; t++,yp++)
@@ -117,21 +128,105 @@ void DrawVerLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color, uint8_
 		UB_VGA_SetPixel(xp+i, yp, color);
 }
 
-void DrawEmptySquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, uint8_t color, uint8_t width_x, uint8_t width_y)
+void Draw_EmptySquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, uint8_t color, uint8_t width_x, uint8_t width_y)
 {
-	DrawHorLine(xp,yp,width,color, width_y);
-	DrawVerLine(xp+width,yp,hight,color, width_x);
-	DrawHorLine(xp,yp+hight,width,color, width_y);
-	DrawVerLine(xp,yp,hight,color, width_x);
+	Draw_HorLine(xp,yp,width,color);
+	Draw_VerLine(xp+width,yp,hight,color);
+	Draw_HorLine(xp,yp+hight,width,color);
+	Draw_VerLine(xp,yp,hight,color);
 }
 
-void DrawFullSquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, uint8_t color, uint8_t width_y)
+void Draw_FullSquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, uint8_t color, uint8_t width_y)
 {
 	int r;
 	for(r=0;r<hight;r++,yp++)
-		DrawHorLine(xp,yp,width, color, width_y);
+		Draw_HorLine(xp,yp,width, color, width_y);
 }
 
+void Draw_Triangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t x3, uint16_t y3, int fill, uint8_t color)
+{
+	uint16_t mpx = (x1+x2+x3)/3;
+	uint16_t mpy = (y1+y2+y3)/3;
+
+	Draw_Line(x1,y1,x2,y2,1,color);
+	Draw_Line(x2,y2,x3,y3,1,color);
+	Draw_Line(x3,y3,x1,y1,1,color);
+
+	UB_VGA_SetPixel(mpx,mpy,color);
+
+	if(fill==1)
+	{
+		signed int x,y,dx,dy,px,py,dxabs,dyabs,i,j;
+		float slope;
+		for(j=0;j<3;j++)
+		{
+			if(j==0)
+			{
+				dx=x2-x1;		/* the horizontal distance of the line */
+				dy=y2-y1;		/* the vertical distance of the line */
+				x=x1; y=y1;
+			}
+			else if(j==1)
+			{
+				dx=x3-x2;		/* the horizontal distance of the line */
+				dy=y3-y2;		/* the vertical distance of the line */
+				x=x2; y=y2;
+			}
+			else if(j==2)
+			{
+				dx=x1-x3;		/* the horizontal distance of the line */
+				dy=y1-y3;		/* the vertical distance of the line */
+				x=x3; y=y3;
+			}
+			dxabs=fabs(dx);		//abs(dx); betekent de absolute waarde van
+			dyabs=fabs(dy);		//abs(dy); same
+
+			if (dxabs>=dyabs) /* the line is more horizontal than vertical */
+			{
+				slope=(float)dy / (float)dx;
+				if(dx<0x80000000)	/*x is positive*/
+				{
+					for(i=0;i!=dx;i++)
+					{
+						px=i+x;
+						py=slope*i+y;
+						Draw_Line(mpx,mpy,px,py,1,color);
+					}
+				}
+				else				/*x is negative*/
+				{
+					for(i=0;i!=dxabs;i++)
+					{
+						px=x-i;
+						py=y-slope*i;
+						Draw_Line(mpx,mpy,px,py,1,color);
+					}
+				}
+			}
+			else /* the line is more vertical than horizontal */
+			{
+				slope=(float)dx / (float)dy;
+				if(dy<0x80000000)	/*y is positive*/
+				{
+					for(i=0;i!=dy;i++)
+					{
+						px=slope*i+x;
+						py=y+i;
+						Draw_Line(mpx,mpy,px,py,1,color);
+					}
+				}else				/*y is negative*/
+				{
+					for(i=0;i!=dyabs;i++)
+					{
+						px=x-slope*i;
+						py=y-i;
+						Draw_Line(mpx,mpy,px,py,1,color);
+					}
+				}
+			}
+		}
+	}
+}
 
 void Draw_Ellipse(unsigned short xp, unsigned short yp, unsigned short r1, unsigned short r2, short fill, unsigned short thickness, unsigned short colour)
 {
