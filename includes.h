@@ -1,18 +1,5 @@
 /*
 *********************************************************************************************************
-*                                              EXAMPLE CODE
-*
-*                             (c) Copyright 2013; Micrium, Inc.; Weston, FL
-*
-*                   All rights reserved.  Protected by international copyright laws.
-*                   Knowledge of the source code may not be used to write a similar
-*                   product.  This file may only be used in accordance with a license
-*                   and should not be redistributed in any way.
-*********************************************************************************************************
-*/
-
-/*
-*********************************************************************************************************
 *
 *                                           MASTER INCLUDES
 *

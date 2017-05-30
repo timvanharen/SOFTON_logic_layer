@@ -41,7 +41,7 @@ void wait_msec(unsigned int msec)
 	while(TIM_GetCounter(TIM3)<msec);
 }
 
-signed int Draw_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t width uint8_t color)
+signed int Draw_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t width, uint8_t color)
 {
 	signed int dx,dy,px,py,dxabs,dyabs,i,j;
 	float slope;
@@ -114,17 +114,14 @@ signed int Draw_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t
 void Draw_HorLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color) // x-coordinaat
 {
 	int i;
-	int j;
 	for(i=0; i<length; i++,xp++)
-		for(j=0; j<width_y; j++)
-		UB_VGA_SetPixel(xp, yp+j, color);
+		UB_VGA_SetPixel(xp, yp, color);
 }
 
 void Draw_VerLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color)
 {
 	int t;
 	for(t=0; t<length; t++,yp++)
-		for(i=0; i<width_x; i++)
 		UB_VGA_SetPixel(xp+i, yp, color);
 }
 
@@ -140,7 +137,7 @@ void Draw_FullSquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, uin
 {
 	int r;
 	for(r=0;r<hight;r++,yp++)
-		Draw_HorLine(xp,yp,width, color, width_y);
+		Draw_HorLine(xp,yp,width,color);
 }
 
 void Draw_Triangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t x3, uint16_t y3, int fill, uint8_t color)
@@ -248,10 +245,10 @@ void Draw_Ellipse(unsigned short xp, unsigned short yp, unsigned short r1, unsig
 	if(fill==0) {
 		if(thickness>1) {
 			for(i=0; i < r1*2; i++)
-				DrawVerLine(EllipseXPosArray[i], EllipseYPosArray[i]+(thickness/2), thickness, colour, 1);
+				Draw_VerLine(EllipseXPosArray[i], EllipseYPosArray[i]+(thickness/2), thickness, colour);
 
 			for(i=r1*2; i < r1*4; i++)
-				DrawVerLine(EllipseXPosArray[i], EllipseYPosArray[i]-(thickness/2), thickness, colour, 1);
+				Draw_VerLine(EllipseXPosArray[i], EllipseYPosArray[i]-(thickness/2), thickness, colour);
 		} else {
 			for(i=0; i < r1*4; i++)
 				UB_VGA_SetPixel(EllipseXPosArray[i], EllipseYPosArray[i], colour);
@@ -259,12 +256,12 @@ void Draw_Ellipse(unsigned short xp, unsigned short yp, unsigned short r1, unsig
 	} else {
 		for(i=0; i < r1*2; i++) {
 			len = yp-EllipseYPosArray[i];
-			DrawVerLine(EllipseXPosArray[i], EllipseYPosArray[i], len, colour, 1);
+			Draw_VerLine(EllipseXPosArray[i], EllipseYPosArray[i], len, colour);
 		}
 
 		for(i=r1*2; i <= r1*4; i++) {
 			len = EllipseYPosArray[i]-yp;
-			DrawVerLine(EllipseXPosArray[i], yp, len, colour, 1);
+			Draw_VerLine(EllipseXPosArray[i], yp, len, colour);
 		}
 	}
 }
