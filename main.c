@@ -2,7 +2,7 @@
  * File     : main.c
  * Datum    : Mei 2017
  * Version  : 1.0
- * Autor    : SOFTON groep 9
+ * Autor    : SOFTON groep 9, Irisjka, Tim, Alessandro en Mansur
  * CPU      : STM32F4
  * IDE      : CooCox CoIDE 1.7.x
  * Module   : CMSIS_BOOT, M4_CMSIS_CORE
@@ -15,8 +15,6 @@
 #include "Draw_request.h"
 #include "apllication.h"
 
-int i,j=0;
-char c;
 
 int main()
 {

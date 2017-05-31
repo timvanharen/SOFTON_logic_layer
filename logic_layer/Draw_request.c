@@ -277,8 +277,8 @@ void Clear_screen(unsigned short color)
 }
 
 /*
- * The function Bitmap_to_VGA receives 2 parameters that define the begin position of the image on the screen.
- * This position is the left top corner of the image.
+ * The function Bitmap_to_VGA receives 2 parameters that define the begin position of the image on the screen (left top corner).
+ * A third parameter defines how many times the image is printed on the screen
  */
 void Bitmap_to_VGA(uint8_t xp, uint8_t yp, uint8_t repeat)
 {
@@ -288,6 +288,17 @@ void Bitmap_to_VGA(uint8_t xp, uint8_t yp, uint8_t repeat)
 	int j=0;
 	int k=0;
 
+	//errormessages
+	if (image[i] > 255 || image[i] < 0)   //The image may only have 256 colors
+		printf ("error, your image contains more than 256 colors");
+	if (IMAGE_HEIGHT > 240)
+		printf("Your image height must be shorter than 240 pixels");
+	if (IMAGE_WIDTH > 320)
+		printf("Your image width must be shorter than 320 pixels");
+	if (xp>320 || xp < 0)
+		printf("x-coordinate must be an integer value between 0 and 320");
+	if (yp>240 || yp < 0)
+		printf("y-coordinate must be an integer value between 0 and 240");
 
     for (y_counter=yp; y_counter<IMAGE_HEIGHT+yp; y_counter++)   //for loop for vertical pixels of image
 	{
@@ -305,16 +316,6 @@ void Bitmap_to_VGA(uint8_t xp, uint8_t yp, uint8_t repeat)
 				for(k=0; k<repeat; k++)
 					UB_VGA_SetPixel(x_counter+IMAGE_WIDTH*k, y_counter, image[i]);
 
-				if (image[i] > 255 || image[i] < 0)   //The image may only have 256 colors
-					printf ("error, your image contains more than 256 colors");
-				if (IMAGE_HEIGHT > 240)
-					printf("Your image height must be shorter than 240 pixels");
-				if (IMAGE_WIDTH > 320)
-					printf("Your image width must be shorter than 320 pixels");
-				if (xp>320 || xp < 0)
-					printf("x-coordinate must be an integer value between 0 and 320");
-				if (yp>240 || yp < 0)
-					printf("y-coordinate must be an integer value between 0 and 240");
 		}
 	}
 

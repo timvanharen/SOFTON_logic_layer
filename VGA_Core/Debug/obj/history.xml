@@ -1,50 +1,95 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\irisj\Documents -I..\..\..\..\..\Users\irisj\Documents\GitHub\SOFTON_logic_layer\Presentation_layer -I..\..\..\..\..\Users\irisj\Documents\GitHub -I..\..\..\..\..\Users\irisj\Documents\GitHub\SOFTON_logic_layer\logic_layer -I..\..\..\..\..\Users\irisj\Documents\GitHub\SOFTON_logic_layer -I..\..\..\..\..\Users\irisj\Documents\GitHub\SOFTON_logic_layer\cmsis_boot -I..\..\..\..\..\Users\irisj\Documents\GitHub\SOFTON_logic_layer\ub_lib -I..\..\..\..\..\Users\irisj\Documents\GitHub\SOFTON_logic_layer\cmsis -I..\..\..\..\..\Users\irisj\Documents\GitHub\SOFTON_logic_layer\cmsis_lib -I..\..\..\..\..\Users\irisj\Documents\GitHub\SOFTON_logic_layer\ports -I..\..\..\..\..\Users\irisj\Documents\GitHub\SOFTON_logic_layer\cmsis_lib\include">
-      <target file="syscalls.o" lastModified="15c5b21f2a9">
-         <source file="..\..\..\syscalls\syscalls.c" lastModified="15c59a11845"/>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\ub_lib -I..\..\..\..\..\Users\Mansur\Documents\GitHub -I..\..\..\..\..\Users\Mansur\Documents -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_boot -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\font -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\Presentation_layer -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\logic_layer -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_lib -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\ports -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_lib\include">
+      <target file="_Arial_regular_s72.o" lastModified="15c5d8c767b">
+         <source file="..\..\..\font\_Arial_regular_s72.c" lastModified="15c539c29a6"/>
       </target>
-      <target file="stm32f4xx_gpio.o" lastModified="15c5b21f032">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="15c59a116dd"/>
+      <target file="stm32f4xx_gpio.o" lastModified="15c5d8c6c6f">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="15c2f86d0b0"/>
       </target>
-      <target file="uart.o" lastModified="15c5b4f1334">
-         <source file="..\..\..\ports\uart.c" lastModified="15c59a1183d"/>
+      <target file="_Rockwell_italic_s72.o" lastModified="15c5d8c61db">
+         <source file="..\..\..\font\_Rockwell_italic_s72.c" lastModified="15c539c2a06"/>
       </target>
-      <target file="stm32_ub_vga_screen.o" lastModified="15c5b21f410">
-         <source file="..\..\..\ub_lib\stm32_ub_vga_screen.c" lastModified="15c59a11848"/>
+      <target file="stm32f4xx_flash.o" lastModified="15c5d8c6d2b">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="15c2f86d0ab"/>
       </target>
-      <target file="stm32f4xx_dma.o" lastModified="15c5b21f356">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma.c" lastModified="15c59a11675"/>
+      <target file="stm32_ub_vga_screen.o" lastModified="15c5d8c714b">
+         <source file="..\..\..\ub_lib\stm32_ub_vga_screen.c" lastModified="15c2f86d0f7"/>
       </target>
-      <target file="stm32f4xx_flash.o" lastModified="15c5b21f191">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="15c59a11678"/>
+      <target file="startup_stm32f4xx.o" lastModified="15c5d8c620a">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="15c2f86d063"/>
       </target>
-      <target file="Draw_request.o" lastModified="15c5b28d067">
-         <source file="..\..\..\logic_layer\Draw_request.c" lastModified="15c5b28cd01"/>
+      <target file="stm32f4xx_tim.o" lastModified="15c5d8c7533">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="15c2f86d0ba"/>
       </target>
-      <target file="stm32f4xx_tim.o" lastModified="15c5b21f5b6">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="15c59a116f6"/>
+      <target file="_Arial_bold_s72.o" lastModified="15c5d8c6e92">
+         <source file="..\..\..\font\_Arial_bold_s72.c" lastModified="15c539c298e"/>
       </target>
-      <target file="system_stm32f4xx.o" lastModified="15c5b21f223">
-         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="15c59a11632"/>
+      <target file="system_stm32f4xx.o" lastModified="15c5d8c6ee0">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="15c2f86d075"/>
       </target>
-      <target file="startup_stm32f4xx.o" lastModified="15c5b21ee5e">
-         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="15c59a11611"/>
+      <target file="misc.o" lastModified="15c5d8c7199">
+         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="15c2f86d0a0"/>
       </target>
-      <target file="stm32f4xx_usart.o" lastModified="15c5b21ebd4">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_usart.c" lastModified="15c59a116fd"/>
+      <target file="_Georgia_regular_s72.o" lastModified="15c5d8c6883">
+         <source file="..\..\..\font\_Georgia_regular_s72.c" lastModified="15c539c29c9"/>
       </target>
-      <target file="main.o" lastModified="15c5b7587ff">
-         <source file="..\..\..\main.c" lastModified="15c5b7580c6"/>
+      <target file="stm32f4xx_dma.o" lastModified="15c5d8c6f86">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma.c" lastModified="15c2f86d0a6"/>
       </target>
-      <target file="stm32f4xx_rcc.o" lastModified="15c5b21efb3">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="15c59a116ee"/>
+      <target file="_Rockwell_bold_s72.o" lastModified="15c5d8c671b">
+         <source file="..\..\..\font\_Rockwell_bold_s72.c" lastModified="15c539c29f8"/>
       </target>
-      <target file="apllication.o" lastModified="15c5b21f0bc">
-         <source file="..\..\..\Presentation_layer\apllication.c" lastModified="15c59a1158d"/>
+      <target file="_Times_New_Roman_italic_s72.o" lastModified="15c5d8c6c21">
+         <source file="..\..\..\font\_Times_New_Roman_italic_s72.c" lastModified="15c539c2a27"/>
       </target>
-      <target file="misc.o" lastModified="15c5b21f48e">
-         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="15c59a11671"/>
+      <target file="_Times_New_Roman_bold_s72.o" lastModified="15c5d8c6518">
+         <source file="..\..\..\font\_Times_New_Roman_bold_s72.c" lastModified="15c539c2a1d"/>
+      </target>
+      <target file="_Times_New_Roman_regular_s72.o" lastModified="15c5d8c72e1">
+         <source file="..\..\..\font\_Times_New_Roman_regular_s72.c" lastModified="15c539c2a35"/>
+      </target>
+      <target file="stm32f4xx_rcc.o" lastModified="15c5d8c6585">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="15c2f86d0b4"/>
+      </target>
+      <target file="uart.o" lastModified="15c5d8c6074">
+         <source file="..\..\..\ports\uart.c" lastModified="15c2f9886e3"/>
+      </target>
+      <target file="_Mistral_regular_s72.o" lastModified="15c5d8c6007">
+         <source file="..\..\..\font\_Mistral_regular_s72.c" lastModified="15c539c29eb"/>
+      </target>
+      <target file="_Mistral_bold_s72.o" lastModified="15c5d8c6ac5">
+         <source file="..\..\..\font\_Mistral_bold_s72.c" lastModified="15c539c29e0"/>
+      </target>
+      <target file="_Rockwell_regular_s72.o" lastModified="15c5d8c6372">
+         <source file="..\..\..\font\_Rockwell_regular_s72.c" lastModified="15c539c2a13"/>
+      </target>
+      <target file="syscalls.o" lastModified="15c5d8c6f1f">
+         <source file="..\..\..\syscalls\syscalls.c" lastModified="15c2f86d0f1"/>
+      </target>
+      <target file="apllication.o" lastModified="15c5d8c6ccd">
+         <source file="..\..\..\Presentation_layer\apllication.c" lastModified="15c2f86cfc0"/>
+      </target>
+      <target file="_Arial_italic_s72.o" lastModified="15c5d8c5de4">
+         <source file="..\..\..\font\_Arial_italic_s72.c" lastModified="15c539c299a"/>
+      </target>
+      <target file="Draw_request.o" lastModified="15c5d8c5ede">
+         <source file="..\..\..\logic_layer\Draw_request.c" lastModified="15c5d8c393c"/>
+      </target>
+      <target file="draw_char.o" lastModified="15c5d8c698c">
+         <source file="..\..\..\font\draw_char.c" lastModified="15c539c2a59"/>
+      </target>
+      <target file="_Georgia_bold_s72.o" lastModified="15c5d8c7478">
+         <source file="..\..\..\font\_Georgia_bold_s72.c" lastModified="15c539c29b4"/>
+      </target>
+      <target file="main.o" lastModified="15c5d8dc441">
+         <source file="..\..\..\main.c" lastModified="15c5d8dc1c0"/>
+      </target>
+      <target file="stm32f4xx_usart.o" lastModified="15c5d8c5e51">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_usart.c" lastModified="15c30235276"/>
+      </target>
+      <target file="_Georgia_italic_s72.o" lastModified="15c5d8c70ed">
+         <source file="..\..\..\font\_Georgia_italic_s72.c" lastModified="15c539c29bf"/>
       </target>
    </processor>
 </history>
