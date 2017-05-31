@@ -6,7 +6,6 @@
 #include "apllication.h"
 #include "stm32f4xx_rcc.h"
 #include "uitvoer.h"
-#include "draw_char.h"
 #include <bfc_latin_font.h>
 
 static int i=0;
