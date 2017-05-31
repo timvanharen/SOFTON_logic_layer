@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dependencies>
    <includePath signature="/I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\ub_lib /I..\..\..\..\..\Users\Mansur\Documents\GitHub /I..\..\..\..\..\Users\Mansur\Documents /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_boot /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\font /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\Presentation_layer /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\logic_layer /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_lib /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\ports /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis /I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_lib\include">
-      <source file="..\..\..\Presentation_layer\apllication.c" lastModified="15c2f86cfc0">
-         <include file="..\..\..\main.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="15c2f86d0b0">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\Presentation_layer\apllication.c" lastModified="15c2f86cfc0">
+         <include file="..\..\..\main.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\include\misc.h" lastModified="15c2f86d07f">
@@ -48,10 +48,10 @@
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\cmsis\core_cm4_simd.h" lastModified="15c2f86d438">
-      </source>
       <source file="..\..\..\font\_Georgia_regular_s72.c" lastModified="15c539c2db1">
          <include file="..\..\..\font\bfclatin_font.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cm4_simd.h" lastModified="15c2f86d438">
       </source>
       <source file="..\..\..\font\draw_char.c" lastModified="15c539c2a59">
          <include file="..\..\..\includes.h"/>
@@ -109,6 +109,12 @@
          <include file="..\..\..\cmsis_lib\include\misc.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
       </source>
+      <source file="..\..\..\main.c" lastModified="15c5d8dc5a8">
+         <include file="..\..\..\main.h"/>
+         <include file="..\..\..\ub_lib\stm32_ub_vga_screen.h"/>
+         <include file="..\..\..\logic_layer\Draw_request.h"/>
+         <include file="..\..\..\Presentation_layer\apllication.h"/>
+      </source>
       <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="15c2f86d447">
       </source>
       <source file="..\..\..\font\_Mistral_bold_s72.c" lastModified="15c539c2dc8">
@@ -140,7 +146,7 @@
       <source file="..\..\..\logic_layer\Draw_request.h" lastModified="15c5d87feb2">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\logic_layer\Draw_request.c" lastModified="15c5d8c3d24">
+      <source file="..\..\..\logic_layer\Draw_request.c" lastModified="15c5da34ce8">
          <include file="..\..\..\main.h"/>
          <include file="..\..\..\logic_layer\Draw_request.h"/>
          <include file="..\..\..\ub_lib\stm32_ub_vga_screen.h"/>

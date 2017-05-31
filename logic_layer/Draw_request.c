@@ -8,9 +8,7 @@
 #include "uitvoer.h"
 
 static int i=0;
-short EllipseXPosArray[1000];
-short EllipseYPosArray[1000];
-
+static int j=0;
 
 void TIMER3_Initialize() //delay timer
 {
@@ -43,7 +41,7 @@ void wait_msec(unsigned int msec)
 
 signed int Draw_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t width, uint8_t color)
 {
-	signed int dx,dy,px,py,dxabs,dyabs,i,j;
+	signed int dx,dy,px,py,dxabs,dyabs;
 	float slope;
 
 	dx=x2-x1;		// the horizontal distance of the line
@@ -113,15 +111,13 @@ signed int Draw_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t
 
 void Draw_HorLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color) // x-coordinaat
 {
-	int i;
 	for(i=0; i<length; i++,xp++)
 		UB_VGA_SetPixel(xp, yp, color);
 }
 
 void Draw_VerLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color)
 {
-	int t;
-	for(t=0; t<length; t++,yp++)
+	for(i=0; i<length; i++,yp++)
 		UB_VGA_SetPixel(xp+i, yp, color);
 }
 
@@ -135,8 +131,7 @@ void Draw_EmptySquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, ui
 
 void Draw_FullSquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, uint8_t color, uint8_t width_y)
 {
-	int r;
-	for(r=0;r<hight;r++,yp++)
+	for(i=0;i<hight;i++,yp++)
 		Draw_HorLine(xp,yp,width,color);
 }
 
@@ -227,6 +222,9 @@ void Draw_Triangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t 
 
 void Draw_Ellipse(unsigned short xp, unsigned short yp, unsigned short r1, unsigned short r2, short fill, unsigned short thickness, unsigned short colour)
 {
+unsigned short EllipseXPosArray[1000];
+unsigned short EllipseYPosArray[1000];
+
 	unsigned int len = 0;
 	for(i=0; i<=r1; i++) {
 		EllipseXPosArray[i] = xp - i;
@@ -282,11 +280,10 @@ void Clear_screen(unsigned short color)
  */
 void Bitmap_to_VGA(uint8_t xp, uint8_t yp, uint8_t repeat)
 {
-	int y_counter=0;
-	int x_counter=0;
-	int i=0;
-	int j=0;
-	int k=0;
+	unsigned short k=0;
+	unsigned short y_counter=0;
+	unsigned short x_counter=0;
+
 
 	//errormessages
 	if (image[i] > 255 || image[i] < 0)   //The image may only have 256 colors
@@ -295,9 +292,9 @@ void Bitmap_to_VGA(uint8_t xp, uint8_t yp, uint8_t repeat)
 		printf("Your image height must be shorter than 240 pixels");
 	if (IMAGE_WIDTH > 320)
 		printf("Your image width must be shorter than 320 pixels");
-	if (xp>320 || xp < 0)
+	if (xp>320)
 		printf("x-coordinate must be an integer value between 0 and 320");
-	if (yp>240 || yp < 0)
+	if (yp>240)
 		printf("y-coordinate must be an integer value between 0 and 240");
 
     for (y_counter=yp; y_counter<IMAGE_HEIGHT+yp; y_counter++)   //for loop for vertical pixels of image
