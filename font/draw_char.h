@@ -1,5 +1,18 @@
 #include "includes.h"
-#include "bfclatin_font.h"
+#include "bfc_latin_font.h"
 
-uint16_t draw_character(int char_input, int font_name, int font_type, uint8_t out_size, uint16_t xp, uint16_t yp, uint8_t color, uint8_t bg);
-void draw_sentence(char *sent, int fname, int ftype, int font_size, uint16_t xp, uint16_t yp, uint8_t color, uint8_t bg);
+
+typedef enum
+ {
+ 	Times_New_Roman, Comic_sans, Georgia, Mistral					// 4
+ } f_name ;
+
+typedef enum
+ {
+ 	bold, regular					// 2
+ } f_type ;
+
+
+ uint16_t draw_character(uint16_t xp, uint16_t yp, int char_input, uint8_t color, f_name font_name, f_type font_type, uint8_t font_size, uint8_t bg);
+ void 	  draw_sentence( uint16_t xp, uint16_t yp, char *sent,     uint8_t color, f_name font_name, f_type font_type, uint8_t font_size, uint8_t bg);
+
