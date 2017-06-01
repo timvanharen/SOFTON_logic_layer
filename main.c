@@ -73,8 +73,11 @@ void put_usage()
 			"	xposition: 0 -> 320\r\n"
 			"	yposition: 0 -> 240\r\n"
 			"Wait: this command is a delay function."
-			"	ecample: wacht,[amount ms]\r\n"
-			"	amount: how many miliseconds you want to wait	"
+			"	example: wacht,[amount ms]\r\n"
+			"	amount: how many miliseconds you want to wait\r\n"
+			"Clearscherm: Wipe all text and figures from the screen\r\n"
+			"	example: clearscherm,[color]\r\n"
+			"	color*\r\n"
 			"\r\n"
 			"*color = 0->256(all posible colors) or zwart,blauw,lichtblauw,groen,lichtgroen,cyaan,lichtcyaan,rood,lichtrood,magenta,lichtmagenta,bruin,geel,grijs,wit\r\n"
 			);
