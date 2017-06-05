@@ -27,19 +27,12 @@
 *********************************************************************************************************
 */
 
-#include  <stdarg.h>
-#include  <stdio.h>
-#include  <stdlib.h>
-#include  <math.h>
-
-/*
-*********************************************************************************************************
-*                                              LIBRARIES
-*********************************************************************************************************
-*/
-
-//#include  "os_cpu.h"
-//#include  "os_cfg.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <bfc_latin_font.h>
 
 /*
 *********************************************************************************************************
@@ -47,12 +40,15 @@
 *********************************************************************************************************
 */
 
-//#include  "ucos_ii.h"
-
 #include "misc.h"
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_usart.h"
+#include "stm32_ub_vga_screen.h"
+#include "uart.h"
+#include "delay.h"
+#include "Draw_request.h"
+#include "presentation.h"
 
 /*
 *********************************************************************************************************
@@ -61,7 +57,6 @@
 */
 
 #define MAX_LINE_SIZE 64
-#include "uart.h"
 
 #define TRUE		1
 #define FALSE		0
