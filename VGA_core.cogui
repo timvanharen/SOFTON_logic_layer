@@ -23,17 +23,18 @@
 <part id="3"/>
 <part id="4"/>
 <part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/irisj/Documents/GitHub/SOFTON_logic_layer/main.c" title="main.c" tooltip="C:/Users/irisj/Documents/GitHub/SOFTON_logic_layer/main.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/irisj/Documents/GitHub/SOFTON_logic_layer/main.c" title="main.c" tooltip="C:/Users/irisj/Documents/GitHub/SOFTON_logic_layer/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/VGA_Core/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2989" selectionTopPixel="1041"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3697" selectionTopPixel="452"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="Draw_request.c" partName="Draw_request.c" path="C:/Users/irisj/Documents/GitHub/SOFTON_logic_layer/logic_layer/Draw_request.c" title="Draw_request.c" tooltip="C:/Users/irisj/Documents/GitHub/SOFTON_logic_layer/logic_layer/Draw_request.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Draw_request.c" partName="Draw_request.c" path="C:/Users/irisj/Documents/GitHub/SOFTON_logic_layer/logic_layer/Draw_request.c" title="Draw_request.c" tooltip="C:/Users/irisj/Documents/GitHub/SOFTON_logic_layer/logic_layer/Draw_request.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/VGA_Core/logic_layer/Draw_request.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1062" selectionTopPixel="4589"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1062" selectionTopPixel="621"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="uitvoer.h" partName="uitvoer.h" path="C:/Users/Mansur/Documents/GitHub/SOFTON_logic_layer/logic_layer/uitvoer.h" title="uitvoer.h" tooltip="C:/Users/Mansur/Documents/GitHub/SOFTON_logic_layer/logic_layer/uitvoer.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/VGA_Core/logic_layer/uitvoer.h"/>
@@ -51,6 +52,10 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/VGA_Core/includes.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1759" selectionTopPixel="966"/>
 </editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" partName="uart.h" path="C:/Users/irisj/Documents/GitHub/SOFTON_logic_layer/ports/uart.h" title="uart.h" tooltip="C:/Users/irisj/Documents/GitHub/SOFTON_logic_layer/ports/uart.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/VGA_Core/ports/uart.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
 </editors>
 <views>
 <view id="org.coocox.component.ui.ComponentView" partName="Components">
@@ -60,11 +65,12 @@
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/VGA_Core"/>
+<element path="/VGA_Core/ports"/>
 <element path="/VGA_Core/Presentation_layer"/>
 <element path="/VGA_Core/ub_lib"/>
 </expanded>
 <selection>
-<element path="/VGA_Core/Presentation_layer/apllication.c"/>
+<element path="/VGA_Core/ports/uart.h"/>
 </selection>
 </viewState>
 </view>
@@ -88,7 +94,7 @@
 </view>
 </views>
 <perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.coocox.builder.perspective.CoBuilder">
-<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<perspective editorAreaTrimState="1" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.coocox.builder.ui.PerspectiveCoBuilder" id="org.coocox.builder.perspective.CoBuilder" label="CooCox CoBuilder"/>
 <alwaysOnActionSet id="org.coocox.component.ui.actionSet"/>
 <alwaysOnActionSet id="org.coocox.welcome.ui.actionSet"/>
@@ -117,8 +123,6 @@
 <hide_toolbar_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
-<view id="org.coocox.builder.ui.views.ProjectView"/>
-<view id="org.eclipse.ui.console.ConsoleView"/>
 <fastViewBars>
 <fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@36bb87" orientation="512" selectedTabId="org.coocox.component.ui.Help" style="0">
 <fastViews>
@@ -131,19 +135,27 @@
 <view id="org.coocox.component.ui.ComponentView" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
+<fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@bfc6e4" orientation="512" selectedTabId="org.coocox.builder.ui.views.ProjectView" style="1">
+<fastViews>
+<view id="org.coocox.builder.ui.views.ProjectView" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@1bf26fe" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="1">
+<fastViews>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
 </fastViewBars>
 <layout>
 <mainWindow>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@bfc6e4">
-<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">
-<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<folder appearance="2" expanded="0">
+<page content="org.coocox.builder.ui.views.ProjectView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1615a1f" ratio="0.15956873" ratioLeft="296" ratioRight="1559" relationship="2" relative="org.eclipse.ui.internal.ViewStack@bfc6e4">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.coocox.component.ui.ComponentView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
@@ -155,11 +167,9 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1bf26fe" ratio="0.7" ratioLeft="630" ratioRight="270" relationship="4" relative="org.eclipse.ui.internal.ViewStack@1615a1f">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@11f948b" ratio="0.21966527" ratioLeft="420" ratioRight="1492" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1615a1f">
@@ -284,9 +294,7 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/VGA_Core/logic_layer/Draw_request.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/VGA_Core/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/VGA_Core/logic_layer/uitvoer.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/VGA_Core/logic_layer/Draw_request.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/VGA_Core/logic_layer/Draw_request.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/VGA_Core/ports/uart.c"/>
@@ -295,156 +303,160 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/VGA_Core/cmsis_boot/system_stm32f4xx.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/VGA_Core/ports/includes.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/VGA_Core/Presentation_layer/apllication.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/VGA_Core/ports/uart.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/VGA_Core/ports/uart.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/VGA_Core/includes.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/VGA_Core/main.c"/>
 </editors>
-<item historyLabel="Draw_request.c" index="0">
-<position info="not_deleted" x="5959" y="0"/>
-</item>
-<item historyLabel="uitvoer.h" index="2">
-<position info="not_deleted" x="121" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="669" y="15"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="729" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="667" y="0"/>
-</item>
-<item historyLabel="Draw_request.c" index="0">
-<position info="not_deleted" x="5197" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="667" y="0"/>
-</item>
-<item historyLabel="Draw_request.c" index="3">
-<position info="not_deleted" x="794" y="0"/>
-</item>
-<item historyLabel="Draw_request.h" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Draw_request.c" index="3">
-<position info="not_deleted" x="1575" y="0"/>
-</item>
-<item historyLabel="Draw_request.h" index="4">
-<position info="not_deleted" x="1096" y="0"/>
-</item>
-<item historyLabel="Draw_request.c" index="3">
-<position info="not_deleted" x="1499" y="76"/>
-</item>
-<item historyLabel="Draw_request.h" index="4">
-<position info="not_deleted" x="1096" y="0"/>
-</item>
-<item historyLabel="Draw_request.c" index="3">
-<position info="not_deleted" x="1499" y="76"/>
-</item>
-<item historyLabel="Draw_request.c" index="3">
-<position info="not_deleted" x="16929" y="0"/>
-</item>
-<item historyLabel="Draw_request.h" index="4">
-<position info="not_deleted" x="1096" y="0"/>
-</item>
-<item historyLabel="Draw_request.c" index="3">
-<position info="not_deleted" x="8753" y="8176"/>
-</item>
-<item historyLabel="main.c" index="1">
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="2988" y="0"/>
 </item>
-<item historyLabel="uart.c" index="5">
+<item historyLabel="uart.c" index="3">
 <position info="not_deleted" x="821" y="9"/>
 </item>
-<item historyLabel="Draw_request.h" index="4">
+<item historyLabel="Draw_request.h" index="2">
 <position info="not_deleted" x="963" y="0"/>
 </item>
-<item historyLabel="Draw_request.c" index="3">
+<item historyLabel="Draw_request.c" index="1">
 <position info="not_deleted" x="8753" y="8176"/>
 </item>
-<item historyLabel="includes.h" index="6">
+<item historyLabel="includes.h" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Draw_request.c" index="3">
+<item historyLabel="Draw_request.c" index="1">
 <position info="not_deleted" x="1651" y="0"/>
 </item>
-<item historyLabel="includes.h" index="7">
+<item historyLabel="includes.h" index="5">
 <position info="not_deleted" x="2271" y="0"/>
 </item>
-<item historyLabel="main.c" index="1">
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="2866" y="0"/>
 </item>
-<item historyLabel="system_stm32f4xx.c" index="8">
+<item historyLabel="system_stm32f4xx.c" index="6">
 <position info="not_deleted" x="8804" y="0"/>
 </item>
-<item historyLabel="main.c" index="1">
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="2866" y="0"/>
 </item>
-<item historyLabel="Draw_request.c" index="3">
+<item historyLabel="Draw_request.c" index="1">
 <position info="not_deleted" x="1651" y="0"/>
 </item>
-<item historyLabel="main.c" index="1">
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="2866" y="0"/>
 </item>
-<item historyLabel="main.c" index="1">
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="3019" y="0"/>
 </item>
-<item historyLabel="Draw_request.h" index="4">
+<item historyLabel="Draw_request.h" index="2">
 <position info="not_deleted" x="963" y="0"/>
 </item>
-<item historyLabel="includes.h" index="7">
+<item historyLabel="includes.h" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Draw_request.c" index="3">
+<item historyLabel="Draw_request.c" index="1">
 <position info="not_deleted" x="1501" y="796"/>
 </item>
-<item historyLabel="main.c" index="1">
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="3019" y="0"/>
 </item>
-<item historyLabel="uart.c" index="5">
+<item historyLabel="uart.c" index="3">
 <position info="not_deleted" x="763" y="0"/>
 </item>
-<item historyLabel="includes.h" index="7">
+<item historyLabel="includes.h" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="includes.h" index="7">
+<item historyLabel="includes.h" index="5">
 <position info="not_deleted" x="1759" y="0"/>
 </item>
-<item historyLabel="includes.h" index="7">
+<item historyLabel="includes.h" index="5">
 <position info="not_deleted" x="1431" y="0"/>
 </item>
-<item historyLabel="includes.h" index="7">
+<item historyLabel="includes.h" index="5">
 <position info="not_deleted" x="1455" y="0"/>
 </item>
-<item historyLabel="includes.h" index="7">
+<item historyLabel="includes.h" index="5">
 <position info="not_deleted" x="1759" y="0"/>
 </item>
-<item historyLabel="main.c" index="1">
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="2989" y="0"/>
 </item>
-<item historyLabel="uart.c" index="5">
+<item historyLabel="uart.c" index="3">
 <position info="not_deleted" x="821" y="9"/>
 </item>
-<item historyLabel="uart.c" index="5">
+<item historyLabel="uart.c" index="3">
+<position info="not_deleted" x="664" y="0"/>
+</item>
+<item historyLabel="includes.h" index="5">
+<position info="not_deleted" x="1759" y="0"/>
+</item>
+<item historyLabel="uart.c" index="3">
 <position info="not_deleted" x="664" y="0"/>
 </item>
 <item historyLabel="includes.h" index="7">
 <position info="not_deleted" x="1759" y="0"/>
 </item>
-<item historyLabel="uart.c" index="5">
-<position info="not_deleted" x="664" y="0"/>
-</item>
-<item historyLabel="includes.h" index="9">
+<item historyLabel="includes.h" index="5">
 <position info="not_deleted" x="1759" y="0"/>
 </item>
-<item historyLabel="includes.h" index="7">
-<position info="not_deleted" x="1759" y="0"/>
-</item>
-<item historyLabel="apllication.c" index="10">
+<item historyLabel="apllication.c" index="8">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="uart.c" index="5">
+<item historyLabel="uart.c" index="3">
 <position info="not_deleted" x="664" y="0"/>
 </item>
-<item active="true" historyLabel="Draw_request.c" index="3">
+<item historyLabel="Draw_request.c" index="1">
 <position info="not_deleted" x="1501" y="796"/>
+</item>
+<item historyLabel="uart.c" index="9">
+<position info="not_deleted" x="664" y="0"/>
+</item>
+<item historyLabel="uart.h" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="includes.h" index="11">
+<position info="not_deleted" x="1759" y="0"/>
+</item>
+<item historyLabel="uart.c" index="9">
+<position info="not_deleted" x="664" y="0"/>
+</item>
+<item historyLabel="main.c" index="12">
+<position/>
+</item>
+<item historyLabel="main.c" index="12">
+<position/>
+</item>
+<item historyLabel="uart.h" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="12">
+<position/>
+</item>
+<item historyLabel="main.c" index="12">
+<position/>
+</item>
+<item historyLabel="main.c" index="12">
+<position/>
+</item>
+<item historyLabel="Draw_request.c" index="1">
+<position info="not_deleted" x="1062" y="0"/>
+</item>
+<item historyLabel="main.c" index="12">
+<position/>
+</item>
+<item historyLabel="Draw_request.c" index="1">
+<position info="not_deleted" x="1062" y="0"/>
+</item>
+<item historyLabel="main.c" index="12">
+<position/>
+</item>
+<item historyLabel="Draw_request.c" index="1">
+<position info="not_deleted" x="1062" y="0"/>
+</item>
+<item historyLabel="main.c" index="12">
+<position info="not_deleted" x="4083" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="12">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -453,6 +465,15 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" tooltip="VGA_Core/ports/uart.h">
+<persistable path="/VGA_Core/ports/uart.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="draw.h" tooltip="VGA_Core/draw.h">
+<persistable path="/VGA_Core/draw.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="draw.c" tooltip="VGA_Core/draw.c">
+<persistable path="/VGA_Core/draw.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="apllication.c" tooltip="VGA_Core/Presentation_layer/apllication.c">
 <persistable path="/VGA_Core/Presentation_layer/apllication.c"/>
 </file>
@@ -488,15 +509,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="VGA_Core/main.c">
 <persistable path="/VGA_Core/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="VGA_Core/cmsis_boot/startup/startup_stm32f4xx.c">
-<persistable path="/VGA_Core/cmsis_boot/startup/startup_stm32f4xx.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_dma.c" tooltip="VGA_Core/cmsis_lib/source/stm32f4xx_dma.c">
-<persistable path="/VGA_Core/cmsis_lib/source/stm32f4xx_dma.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" tooltip="VGA_Core/ports/uart.h">
-<persistable path="/VGA_Core/ports/uart.h"/>
 </file>
 </mruList>
 </workbench>
