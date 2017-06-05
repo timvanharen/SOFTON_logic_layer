@@ -1,0 +1,397 @@
+\hypertarget{_draw__request_8c}{}\section{logic\+\_\+layer/\+Draw\+\_\+request.c File Reference}
+\label{_draw__request_8c}\index{logic\+\_\+layer/\+Draw\+\_\+request.\+c@{logic\+\_\+layer/\+Draw\+\_\+request.\+c}}
+{\ttfamily \#include \char`\"{}includes.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}uitvoer.\+h\char`\"{}}\newline
+Include dependency graph for Draw\+\_\+request.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_draw__request_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_draw__request_8c_ab72b41a355531a67fbecd509c90edde9}{T\+I\+M\+E\+R3\+\_\+\+Initialize} ()
+\begin{DoxyCompactList}\small\item\em Timer3 Initialization. \end{DoxyCompactList}\item 
+void \hyperlink{_draw__request_8c_a36c40ce15fec581ea1d076aea9a41b12}{wait\+\_\+msec} (unsigned int msec)
+\item 
+signed int \hyperlink{_draw__request_8c_a978257370e90e9832a47bb67a51bcdd0}{Draw\+\_\+\+Line} (uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t x2, uint16\+\_\+t y2, uint8\+\_\+t width, uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws a line on a V\+GA screen. \end{DoxyCompactList}\item 
+void \hyperlink{_draw__request_8c_a3a0d412ecb4dca2d1c83b65da49bbade}{Draw\+\_\+\+Hor\+Line} (uint16\+\_\+t xp, uint16\+\_\+t yp, uint8\+\_\+t length, uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws a horizontal line on a V\+GA screen. \end{DoxyCompactList}\item 
+void \hyperlink{_draw__request_8c_a1c72a0e7b90d716ea89145be3b2ac374}{Draw\+\_\+\+Ver\+Line} (uint16\+\_\+t xp, uint16\+\_\+t yp, uint8\+\_\+t length, uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws a vertical line on a V\+GA screen. \end{DoxyCompactList}\item 
+void \hyperlink{_draw__request_8c_afcc60b34bed9039c997f6d923fb50e4c}{Draw\+\_\+\+Rectangle} (uint16\+\_\+t xp, uint16\+\_\+t yp, uint8\+\_\+t x\+\_\+length, uint8\+\_\+t y\+\_\+length, uint8\+\_\+t line\+\_\+width, uint8\+\_\+t fill, uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws a rectangle with any lengths you like on a V\+GA screen. \end{DoxyCompactList}\item 
+void \hyperlink{_draw__request_8c_acdbec12042121c8c90b6d2f17d3b1dab}{Draw\+\_\+\+Triangle} (uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t x2, uint16\+\_\+t y2, uint16\+\_\+t x3, uint16\+\_\+t y3, int fill, uint8\+\_\+t line\+\_\+width, uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws a triangle with the corners on which ever coordinate you choose. \end{DoxyCompactList}\item 
+void \hyperlink{_draw__request_8c_a6f52570e9d95806b556d5d89823dfc38}{Draw\+\_\+\+Ellipse} (uint16\+\_\+t xp, uint16\+\_\+t yp, uint16\+\_\+t r1, uint16\+\_\+t r2, uint16\+\_\+t fill, uint16\+\_\+t thickness, uint8\+\_\+t colour)
+\begin{DoxyCompactList}\small\item\em Draws a ellips on a V\+GA screen. \end{DoxyCompactList}\item 
+void \hyperlink{_draw__request_8c_aadb59076e96776dbf24e0a6620de0400}{Set\+\_\+\+Single\+\_\+\+Pixel} (uint16\+\_\+t xp, uint16\+\_\+t yp, uint8\+\_\+t colour)
+\begin{DoxyCompactList}\small\item\em Colors a pixel on the coordinate of you desire with the color of your desire. \end{DoxyCompactList}\item 
+void \hyperlink{_draw__request_8c_a2d4745604fe0ba4c30ad35aeee485cdd}{Clear\+\_\+screen} (uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Turns the whole vga screen into one color. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{_draw__request_8c_a9dbd751c1ebf034c751ba85222000289}{draw\+\_\+character} (uint16\+\_\+t xp, uint16\+\_\+t yp, int c, uint8\+\_\+t color, \hyperlink{_draw__request_8h_a5f885badaea1ce688c8349bc79e82358}{f\+\_\+name} font\+\_\+name, \hyperlink{_draw__request_8h_afeee049c9120627f4bad4322d131c130}{f\+\_\+type} font\+\_\+type, uint8\+\_\+t font\+\_\+size, uint8\+\_\+t bg)
+\begin{DoxyCompactList}\small\item\em Draw a character on the V\+GA screen. \end{DoxyCompactList}\item 
+void \hyperlink{_draw__request_8c_ad403fe7bfee17d66ba92bdb7a8d13079}{draw\+\_\+sentence} (uint16\+\_\+t xp, uint16\+\_\+t yp, char $\ast$sent, uint8\+\_\+t color, \hyperlink{_draw__request_8h_a5f885badaea1ce688c8349bc79e82358}{f\+\_\+name} font\+\_\+name, \hyperlink{_draw__request_8h_afeee049c9120627f4bad4322d131c130}{f\+\_\+type} font\+\_\+type, uint8\+\_\+t font\+\_\+size, uint8\+\_\+t bg)
+\begin{DoxyCompactList}\small\item\em Draw multiple characyers on the V\+GA screen. \end{DoxyCompactList}\item 
+void \hyperlink{_draw__request_8c_a3d61186e3fd07ce89ce81026165499ec}{Bitmap\+\_\+to\+\_\+\+V\+GA} (uint8\+\_\+t image\+\_\+nr, uint8\+\_\+t xp, uint8\+\_\+t yp)
+\begin{DoxyCompactList}\small\item\em Draws a the bitmap of a picture/image on a V\+GA screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_draw__request_8c_a3d61186e3fd07ce89ce81026165499ec}\label{_draw__request_8c_a3d61186e3fd07ce89ce81026165499ec}} 
+\index{Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}!Bitmap\+\_\+to\+\_\+\+V\+GA@{Bitmap\+\_\+to\+\_\+\+V\+GA}}
+\index{Bitmap\+\_\+to\+\_\+\+V\+GA@{Bitmap\+\_\+to\+\_\+\+V\+GA}!Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}}
+\subsubsection{\texorpdfstring{Bitmap\+\_\+to\+\_\+\+V\+G\+A()}{Bitmap\_to\_VGA()}}
+{\footnotesize\ttfamily void Bitmap\+\_\+to\+\_\+\+V\+GA (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{image\+\_\+nr,  }\item[{uint8\+\_\+t}]{xp,  }\item[{uint8\+\_\+t}]{yp }\end{DoxyParamCaption})}
+
+
+
+Draws a the bitmap of a picture/image on a V\+GA screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image\+\_\+nr} & the number of the image that you want. \\
+\hline
+{\em xp} & x value of the start coordinate (0 to 320). \\
+\hline
+{\em yp} & y value of the start coordinate (0 to 240). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+{\bfseries Memory} 
+
+{\bfseries Milestone} 
+\end{DoxyRemark}
+\mbox{\Hypertarget{_draw__request_8c_a2d4745604fe0ba4c30ad35aeee485cdd}\label{_draw__request_8c_a2d4745604fe0ba4c30ad35aeee485cdd}} 
+\index{Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}!Clear\+\_\+screen@{Clear\+\_\+screen}}
+\index{Clear\+\_\+screen@{Clear\+\_\+screen}!Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}}
+\subsubsection{\texorpdfstring{Clear\+\_\+screen()}{Clear\_screen()}}
+{\footnotesize\ttfamily void Clear\+\_\+screen (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Turns the whole vga screen into one color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & color of the screen(0x00 to 0x\+F\+F). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+{\bfseries Memory} 
+
+{\bfseries Milestone} 
+\end{DoxyRemark}
+\mbox{\Hypertarget{_draw__request_8c_a9dbd751c1ebf034c751ba85222000289}\label{_draw__request_8c_a9dbd751c1ebf034c751ba85222000289}} 
+\index{Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}!draw\+\_\+character@{draw\+\_\+character}}
+\index{draw\+\_\+character@{draw\+\_\+character}!Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}}
+\subsubsection{\texorpdfstring{draw\+\_\+character()}{draw\_character()}}
+{\footnotesize\ttfamily uint16\+\_\+t draw\+\_\+character (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{xp,  }\item[{uint16\+\_\+t}]{yp,  }\item[{int}]{char\+\_\+input,  }\item[{uint8\+\_\+t}]{color,  }\item[{\hyperlink{_draw__request_8h_a5f885badaea1ce688c8349bc79e82358}{f\+\_\+name}}]{font\+\_\+name,  }\item[{\hyperlink{_draw__request_8h_afeee049c9120627f4bad4322d131c130}{f\+\_\+type}}]{font\+\_\+type,  }\item[{uint8\+\_\+t}]{font\+\_\+size,  }\item[{uint8\+\_\+t}]{bg }\end{DoxyParamCaption})}
+
+
+
+Draw a character on the V\+GA screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & x value of the pixel coordinate (0 to 320). \\
+\hline
+{\em yp} & y value of the pixel coordinate (0 to 240). \\
+\hline
+{\em color} & color of the pixel (0x00 to 0x\+FF). \\
+\hline
+{\em font\+\_\+name} & \\
+\hline
+{\em font\+\_\+type} & \\
+\hline
+{\em font\+\_\+size} & \\
+\hline
+{\em bg} & background color. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char\+\_\+width 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+{\bfseries Memory} 
+
+{\bfseries Milestone} 
+\end{DoxyRemark}
+\mbox{\Hypertarget{_draw__request_8c_a6f52570e9d95806b556d5d89823dfc38}\label{_draw__request_8c_a6f52570e9d95806b556d5d89823dfc38}} 
+\index{Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}!Draw\+\_\+\+Ellipse@{Draw\+\_\+\+Ellipse}}
+\index{Draw\+\_\+\+Ellipse@{Draw\+\_\+\+Ellipse}!Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}}
+\subsubsection{\texorpdfstring{Draw\+\_\+\+Ellipse()}{Draw\_Ellipse()}}
+{\footnotesize\ttfamily void Draw\+\_\+\+Ellipse (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{xp,  }\item[{uint16\+\_\+t}]{yp,  }\item[{uint16\+\_\+t}]{r1,  }\item[{uint16\+\_\+t}]{r2,  }\item[{uint16\+\_\+t}]{fill,  }\item[{uint16\+\_\+t}]{thickness,  }\item[{uint8\+\_\+t}]{colour }\end{DoxyParamCaption})}
+
+
+
+Draws a ellips on a V\+GA screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & x value of the start coordinate (0 to 320). \\
+\hline
+{\em yp} & y value of the start coordinate (0 to 240). \\
+\hline
+{\em r2} & \\
+\hline
+{\em fill} & \\
+\hline
+{\em thickness} & \\
+\hline
+{\em colour} & color of the line (0x00 to 0x\+FF). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+{\bfseries Memory} 
+
+{\bfseries Milestone} 
+\end{DoxyRemark}
+\mbox{\Hypertarget{_draw__request_8c_a3a0d412ecb4dca2d1c83b65da49bbade}\label{_draw__request_8c_a3a0d412ecb4dca2d1c83b65da49bbade}} 
+\index{Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}!Draw\+\_\+\+Hor\+Line@{Draw\+\_\+\+Hor\+Line}}
+\index{Draw\+\_\+\+Hor\+Line@{Draw\+\_\+\+Hor\+Line}!Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}}
+\subsubsection{\texorpdfstring{Draw\+\_\+\+Hor\+Line()}{Draw\_HorLine()}}
+{\footnotesize\ttfamily void Draw\+\_\+\+Hor\+Line (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{xp,  }\item[{uint16\+\_\+t}]{yp,  }\item[{uint8\+\_\+t}]{length,  }\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws a horizontal line on a V\+GA screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & x value of the start coordinate (0 to 320). \\
+\hline
+{\em yp} & y value of the start coordinate (0 to 240). \\
+\hline
+{\em length} & amount of pixels that makes the length of the line. \\
+\hline
+{\em color} & color of the line (0x00 to 0x\+FF). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+{\bfseries Memory} 
+\end{DoxyRemark}
+\mbox{\Hypertarget{_draw__request_8c_a978257370e90e9832a47bb67a51bcdd0}\label{_draw__request_8c_a978257370e90e9832a47bb67a51bcdd0}} 
+\index{Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}!Draw\+\_\+\+Line@{Draw\+\_\+\+Line}}
+\index{Draw\+\_\+\+Line@{Draw\+\_\+\+Line}!Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}}
+\subsubsection{\texorpdfstring{Draw\+\_\+\+Line()}{Draw\_Line()}}
+{\footnotesize\ttfamily signed int Draw\+\_\+\+Line (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x1,  }\item[{uint16\+\_\+t}]{y1,  }\item[{uint16\+\_\+t}]{x2,  }\item[{uint16\+\_\+t}]{y2,  }\item[{uint8\+\_\+t}]{width,  }\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws a line on a V\+GA screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & x value of the start coordinate (0 to 320). \\
+\hline
+{\em y1} & y value of the start coordinate (0 to 240). \\
+\hline
+{\em x2} & x value of the end coordinate (0 to 320). \\
+\hline
+{\em y2} & y value of the end coordinate (0 to 240). \\
+\hline
+{\em width} & indicates the width of the line. \\
+\hline
+{\em color} & color of the line (0x00 to 0x\+FF). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+{\bfseries Memory} 
+
+{\bfseries Milestone} It could be faster without all the mathematical stuff going on. 
+\end{DoxyRemark}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{_draw__request_8c_a978257370e90e9832a47bb67a51bcdd0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_draw__request_8c_afcc60b34bed9039c997f6d923fb50e4c}\label{_draw__request_8c_afcc60b34bed9039c997f6d923fb50e4c}} 
+\index{Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}!Draw\+\_\+\+Rectangle@{Draw\+\_\+\+Rectangle}}
+\index{Draw\+\_\+\+Rectangle@{Draw\+\_\+\+Rectangle}!Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}}
+\subsubsection{\texorpdfstring{Draw\+\_\+\+Rectangle()}{Draw\_Rectangle()}}
+{\footnotesize\ttfamily void Draw\+\_\+\+Rectangle (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{xp,  }\item[{uint16\+\_\+t}]{yp,  }\item[{uint8\+\_\+t}]{x\+\_\+length,  }\item[{uint8\+\_\+t}]{y\+\_\+length,  }\item[{uint8\+\_\+t}]{line\+\_\+width,  }\item[{uint8\+\_\+t}]{fill,  }\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws a rectangle with any lengths you like on a V\+GA screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & x value of the start coordinate (0 to 320). \\
+\hline
+{\em yp} & y value of the start coordinate (0 to 240). \\
+\hline
+{\em x\+\_\+length} & the amount of pixels in the x direction (0 to 320 minus xp). \\
+\hline
+{\em y\+\_\+length} & the amount of pixels in the y direction (0 to 240 minus yp). \\
+\hline
+{\em line\+\_\+width} & the width of the drawn line (1 to half of the shortest length). \\
+\hline
+{\em fill} & filled rectangle (1) or empty rectangle (0). \\
+\hline
+{\em color} & color of the rectangle (0x00 to 0x\+FF). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+{\bfseries Memory} 
+\end{DoxyRemark}
+\mbox{\Hypertarget{_draw__request_8c_ad403fe7bfee17d66ba92bdb7a8d13079}\label{_draw__request_8c_ad403fe7bfee17d66ba92bdb7a8d13079}} 
+\index{Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}!draw\+\_\+sentence@{draw\+\_\+sentence}}
+\index{draw\+\_\+sentence@{draw\+\_\+sentence}!Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}}
+\subsubsection{\texorpdfstring{draw\+\_\+sentence()}{draw\_sentence()}}
+{\footnotesize\ttfamily void draw\+\_\+sentence (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{xp,  }\item[{uint16\+\_\+t}]{yp,  }\item[{char $\ast$}]{sent,  }\item[{uint8\+\_\+t}]{color,  }\item[{\hyperlink{_draw__request_8h_a5f885badaea1ce688c8349bc79e82358}{f\+\_\+name}}]{font\+\_\+name,  }\item[{\hyperlink{_draw__request_8h_afeee049c9120627f4bad4322d131c130}{f\+\_\+type}}]{font\+\_\+type,  }\item[{uint8\+\_\+t}]{font\+\_\+size,  }\item[{uint8\+\_\+t}]{bg }\end{DoxyParamCaption})}
+
+
+
+Draw multiple characyers on the V\+GA screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & x value of the pixel coordinate (0 to 320). \\
+\hline
+{\em yp} & y value of the pixel coordinate (0 to 240). \\
+\hline
+{\em color} & color of the pixel (0x00 to 0x\+FF). \\
+\hline
+{\em font\+\_\+name} & \\
+\hline
+{\em font\+\_\+type} & \\
+\hline
+{\em font\+\_\+size} & \\
+\hline
+{\em bg} & background color. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+{\bfseries Memory} 
+
+{\bfseries Milestone} 
+\end{DoxyRemark}
+\mbox{\Hypertarget{_draw__request_8c_acdbec12042121c8c90b6d2f17d3b1dab}\label{_draw__request_8c_acdbec12042121c8c90b6d2f17d3b1dab}} 
+\index{Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}!Draw\+\_\+\+Triangle@{Draw\+\_\+\+Triangle}}
+\index{Draw\+\_\+\+Triangle@{Draw\+\_\+\+Triangle}!Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}}
+\subsubsection{\texorpdfstring{Draw\+\_\+\+Triangle()}{Draw\_Triangle()}}
+{\footnotesize\ttfamily void void Draw\+\_\+\+Triangle (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x1,  }\item[{uint16\+\_\+t}]{y1,  }\item[{uint16\+\_\+t}]{x2,  }\item[{uint16\+\_\+t}]{y2,  }\item[{uint16\+\_\+t}]{x3,  }\item[{uint16\+\_\+t}]{y3,  }\item[{int}]{fill,  }\item[{uint8\+\_\+t}]{line\+\_\+width,  }\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws a triangle with the corners on which ever coordinate you choose. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & x value of the first coordinate (0 to 320). \\
+\hline
+{\em y1} & y value of the first coordinate (0 to 240). \\
+\hline
+{\em x2} & x value of the second coordinate (0 to 320). \\
+\hline
+{\em y2} & y value of the second coordinate (0 to 240). \\
+\hline
+{\em x3} & x value of the third coordinate (0 to 320). \\
+\hline
+{\em y3} & y value of the third coordinate (0 to 240). \\
+\hline
+{\em fill} & filled triangle (1) or empty triangle (0). \\
+\hline
+{\em color} & color of the triangle (0x00 to 0x\+FF). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+{\bfseries Memory} 
+
+{\bfseries Milestone} It could be faster without all the mathematical stuff going on. 
+\end{DoxyRemark}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{_draw__request_8c_acdbec12042121c8c90b6d2f17d3b1dab_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_draw__request_8c_a1c72a0e7b90d716ea89145be3b2ac374}\label{_draw__request_8c_a1c72a0e7b90d716ea89145be3b2ac374}} 
+\index{Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}!Draw\+\_\+\+Ver\+Line@{Draw\+\_\+\+Ver\+Line}}
+\index{Draw\+\_\+\+Ver\+Line@{Draw\+\_\+\+Ver\+Line}!Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}}
+\subsubsection{\texorpdfstring{Draw\+\_\+\+Ver\+Line()}{Draw\_VerLine()}}
+{\footnotesize\ttfamily void Draw\+\_\+\+Ver\+Line (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{xp,  }\item[{uint16\+\_\+t}]{yp,  }\item[{uint8\+\_\+t}]{length,  }\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws a vertical line on a V\+GA screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & x value of the start coordinate (0 to 320). \\
+\hline
+{\em yp} & y value of the start coordinate (0 to 240). \\
+\hline
+{\em length} & amount of pixels that makes the length of the line. \\
+\hline
+{\em color} & color of the line (0x00 to 0x\+FF). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+{\bfseries Memory} 
+\end{DoxyRemark}
+\mbox{\Hypertarget{_draw__request_8c_aadb59076e96776dbf24e0a6620de0400}\label{_draw__request_8c_aadb59076e96776dbf24e0a6620de0400}} 
+\index{Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}!Set\+\_\+\+Single\+\_\+\+Pixel@{Set\+\_\+\+Single\+\_\+\+Pixel}}
+\index{Set\+\_\+\+Single\+\_\+\+Pixel@{Set\+\_\+\+Single\+\_\+\+Pixel}!Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}}
+\subsubsection{\texorpdfstring{Set\+\_\+\+Single\+\_\+\+Pixel()}{Set\_Single\_Pixel()}}
+{\footnotesize\ttfamily void Set\+\_\+\+Single\+\_\+\+Pixel (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{xp,  }\item[{uint16\+\_\+t}]{yp,  }\item[{uint8\+\_\+t}]{colour }\end{DoxyParamCaption})}
+
+
+
+Colors a pixel on the coordinate of you desire with the color of your desire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & x value of the pixel coordinate (0 to 320). \\
+\hline
+{\em yp} & y value of the pixel coordinate (0 to 240). \\
+\hline
+{\em color} & color of the pixel (0x00 to 0x\+FF). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+{\bfseries Memory} 
+
+{\bfseries Milestone} 
+\end{DoxyRemark}
+\mbox{\Hypertarget{_draw__request_8c_ab72b41a355531a67fbecd509c90edde9}\label{_draw__request_8c_ab72b41a355531a67fbecd509c90edde9}} 
+\index{Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}!T\+I\+M\+E\+R3\+\_\+\+Initialize@{T\+I\+M\+E\+R3\+\_\+\+Initialize}}
+\index{T\+I\+M\+E\+R3\+\_\+\+Initialize@{T\+I\+M\+E\+R3\+\_\+\+Initialize}!Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}}
+\subsubsection{\texorpdfstring{T\+I\+M\+E\+R3\+\_\+\+Initialize()}{TIMER3\_Initialize()}}
+{\footnotesize\ttfamily void T\+I\+M\+E\+R3\+\_\+\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Timer3 Initialization. 
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{_draw__request_8c_ab72b41a355531a67fbecd509c90edde9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_draw__request_8c_a36c40ce15fec581ea1d076aea9a41b12}\label{_draw__request_8c_a36c40ce15fec581ea1d076aea9a41b12}} 
+\index{Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}!wait\+\_\+msec@{wait\+\_\+msec}}
+\index{wait\+\_\+msec@{wait\+\_\+msec}!Draw\+\_\+request.\+c@{Draw\+\_\+request.\+c}}
+\subsubsection{\texorpdfstring{wait\+\_\+msec()}{wait\_msec()}}
+{\footnotesize\ttfamily void wait\+\_\+msec (\begin{DoxyParamCaption}\item[{unsigned int}]{msec }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em msec} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+Memory\+: 
+
+Wat kan er beter? 
+\end{DoxyRemark}

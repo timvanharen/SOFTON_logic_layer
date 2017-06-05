@@ -1,15 +1,21 @@
+/*
+****************************************************************
+*!	\file		Draw_request.c
+*	\brief		Uses ub_lib to draw figures on a vga screen.
+*	\author		SOFTON groep 9.
+*	\date		Mei 2017.
+*	\version	0.1.
+*
+*	CPU			STM32F4;
+*	IDE			CooCox CoIDE 1.7.x;
+*	Module
+****************************************************************
+*/
 
-#include "main.h"
-#include "Draw_request.h"
-#include "stm32_ub_vga_screen.h"
-#include <math.h>
-#include "apllication.h"
-#include "stm32f4xx_rcc.h"
+#include "includes.h"
 #include "uitvoer.h"
-#include <bfc_latin_font.h>
 
-static int i=0;
-static int j=0;
+static int i,j,k=0;
 
 void TIMER3_Initialize() //delay timer
 {
@@ -94,7 +100,8 @@ signed int Draw_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t
 					UB_VGA_SetPixel(px,py,color);
 				}
 			}
-		}else			// y is negative
+		}
+		else			// y is negative
 		{
 			for(i=0;i!=dyabs;i++)
 			{
@@ -110,42 +117,50 @@ signed int Draw_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t
 	}
 }
 
-void Draw_HorLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color) // x-coordinaat
+void Draw_HorLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color)
 {
-	for(i=0; i<length; i++,xp++)
+	for(k=0; k<length; k++,xp++)
 		UB_VGA_SetPixel(xp, yp, color);
 }
 
 void Draw_VerLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color)
 {
-	for(i=0; i<length; i++,yp++)
-		UB_VGA_SetPixel(xp+i, yp, color);
+	for(k=0; k<length; k++,yp++)
+		UB_VGA_SetPixel(xp, yp, color);
 }
 
-void Draw_EmptySquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, uint8_t color, uint8_t width_x, uint8_t width_y)
+void Draw_Rectangle(uint16_t xp, uint16_t yp, uint8_t x_length, uint8_t y_length, uint8_t line_width, uint8_t fill, uint8_t color)
 {
-	Draw_HorLine(xp,yp,width,color);
-	Draw_VerLine(xp+width,yp,hight,color);
-	Draw_HorLine(xp,yp+hight,width,color);
-	Draw_VerLine(xp,yp,hight,color);
+	uint8_t x,y;
+	int i,j;
+	if(fill==0)
+	{
+		for(i=0;i<line_width;i++)
+		{
+			xp++; yp++;
+			x=x_length-(i*2); y=y_length-(i*2);
+			Draw_HorLine(xp,yp,x,color);
+			Draw_VerLine(xp+x,yp,y,color);
+			Draw_HorLine(xp,yp+y,x,color);
+			Draw_VerLine(xp,yp,y,color);
+		}
+	}else
+	{
+		for(j=0;j<y_length;j++)
+			Draw_HorLine(xp,yp+j,x_length,color);
+	}
 }
 
-void Draw_FullSquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, uint8_t color, uint8_t width_y)
-{
-	for(i=0;i<hight;i++,yp++)
-		Draw_HorLine(xp,yp,width,color);
-}
-
-void Draw_Triangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t x3, uint16_t y3, int fill, uint8_t color)
+void Draw_Triangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t x3, uint16_t y3, int fill, uint8_t line_width, uint8_t color)
 {
 	uint16_t mpx = (x1+x2+x3)/3;
 	uint16_t mpy = (y1+y2+y3)/3;
 
-	Draw_Line(x1,y1,x2,y2,1,color);
-	Draw_Line(x2,y2,x3,y3,1,color);
-	Draw_Line(x3,y3,x1,y1,1,color);
+	Draw_Line(x1,y1,x2,y2,line_width,color);
+	Draw_Line(x2,y2,x3,y3,line_width,color);
+	Draw_Line(x3,y3,x1,y1,line_width,color);
 
-	UB_VGA_SetPixel(mpx,mpy,color);
+	//UB_VGA_SetPixel(mpx,mpy,color);
 
 	if(fill==1)
 	{
@@ -221,7 +236,7 @@ void Draw_Triangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t 
 	}
 }
 
-void Draw_Ellipse(unsigned short xp, unsigned short yp, unsigned short r1, unsigned short r2, short fill, unsigned short thickness, unsigned short colour)
+void Draw_Ellipse(uint16_t xp, uint16_t yp, uint16_t r1, uint16_t r2, uint16_t fill, uint16_t thickness, uint8_t colour)
 {
 unsigned short EllipseXPosArray[1000];
 unsigned short EllipseYPosArray[1000];
@@ -265,69 +280,26 @@ unsigned short EllipseYPosArray[1000];
 	}
 }
 
-void Set_Single_Pixel(unsigned short xp, unsigned short yp, unsigned short colour )
+void Set_Single_Pixel(uint16_t xp, uint16_t yp, uint8_t colour)
 {
 	UB_VGA_SetPixel(xp,yp,colour);
 }
 
-void Clear_screen(unsigned short color)
+void Clear_screen(uint8_t color)
 {
 	UB_VGA_FillScreen(color);
 }
 
-/*
- * The function Bitmap_to_VGA receives 2 parameters that define the begin position of the image on the screen (left top corner).
- * A third parameter defines how many times the image is printed on the screen
- */
-void Bitmap_to_VGA(uint8_t xp, uint8_t yp, uint8_t repeat)
-{
-	unsigned short k=0;
-	unsigned short y_counter=0;
-	unsigned short x_counter=0;
-
-
-	//errormessages
-	if (image[i] > 255 || image[i] < 0)   //The image may only have 256 colors
-		printf ("error, your image contains more than 256 colors");
-	if (IMAGE_HEIGHT > 240)
-		printf("Your image height must be shorter than 240 pixels");
-	if (IMAGE_WIDTH > 320)
-		printf("Your image width must be shorter than 320 pixels");
-	if (xp>320)
-		printf("x-coordinate must be an integer value between 0 and 320");
-	if (yp>240)
-		printf("y-coordinate must be an integer value between 0 and 240");
-
-    for (y_counter=yp; y_counter<IMAGE_HEIGHT+yp; y_counter++)   //for loop for vertical pixels of image
-	{
-		for (x_counter=xp; x_counter<IMAGE_WIDTH+xp; x_counter++)  //for loop for horizontal pixels of image
-		{
-//				UB_VGA_SetPixel(x_counter, y_counter);
-			i++; // i loopt tot Image_heigth*Image_width
-
-			if (i==IMAGE_HEIGHT*IMAGE_WIDTH)	// Print duplicate of image next to it
-
-				for(j=0; j<5000; j++)
-				{
-					//delay
-				}
-				for(k=0; k<repeat; k++)
-					UB_VGA_SetPixel(x_counter+IMAGE_WIDTH*k, y_counter, image[i]);
-
-		}
-	}
-
-}
 
 uint16_t draw_character(uint16_t xp, uint16_t yp, int c, uint8_t color, f_name font_name, f_type font_type, uint8_t font_size, uint8_t bg)
 {
-    	uint8_t  i, j , k, bit = 0 ;
-	UCHAR  	pTemp ;
-	UCHAR  *pData ;
-	USHORT 	char_height;
-	UCHAR  	char_index;
-	UCHAR  	char_width;
-	ULONG  	char_offset;
+    uint8_t  i, j , k, bit = 0 ;
+    		UCHAR  	pTemp ;
+	const 	UCHAR  *pData ;
+			USHORT 	char_height;
+			UCHAR  	char_index;
+			UCHAR  	char_width;
+			ULONG  	char_offset;
 
 	USHORT quotient  = 1 ;
 	USHORT divisor   = 8 ;
@@ -339,12 +311,12 @@ uint16_t draw_character(uint16_t xp, uint16_t yp, int c, uint8_t color, f_name f
 	extern const BFCLATIN_FONT fontTimes_New_Roman_reg_size8;
 	extern const BFCLATIN_FONT fontTimes_New_Roman_reg_size12;
 	extern const BFCLATIN_FONT fontTimes_New_Roman_reg_size20;
-	extern const BFCLATIN_FONT fontComic_Sans_bold_size8;
-  	extern const BFCLATIN_FONT fontComic_Sans_bold_size12;
-   	extern const BFCLATIN_FONT fontComic_Sans_bold_size20;
-   	extern const BFCLATIN_FONT fontComic_Sans_reg_size8;
-   	extern const BFCLATIN_FONT fontComic_Sans_reg_size12;
-   	extern const BFCLATIN_FONT fontComic_Sans_reg_size20;
+	extern const BFCLATIN_FONT fontGeorgia_bold_size8;
+  	extern const BFCLATIN_FONT fontGeorgia_bold_size12;
+   	extern const BFCLATIN_FONT fontGeorgia_bold_size20;
+   	extern const BFCLATIN_FONT fontGeorgia_reg_size8;
+   	extern const BFCLATIN_FONT fontGeorgia_reg_size12;
+   	extern const BFCLATIN_FONT fontGeorgia_reg_size20;
 
 
 	if (font_name == Times_New_Roman && font_type == bold && font_size == 8 )
@@ -401,69 +373,65 @@ uint16_t draw_character(uint16_t xp, uint16_t yp, int c, uint8_t color, f_name f
 		 char_offset 	=  fontTimes_New_Roman_reg_size20.offset_table[char_index];
 		 pData     	= &fontTimes_New_Roman_reg_size20.data_table[char_offset];
 	}
-
-
-
-	else if (font_name == Comic_sans && font_type == bold && font_size == 8 )
+	else if (font_name == Georgia && font_type == bold && font_size == 8 )
 	{
 		//UART_puts("  Detected: fontComic_Sans_bold_size8 \n") ;
-		 char_height 	=  fontComic_Sans_bold_size8.Height;
-		 char_index 	=  fontComic_Sans_bold_size8.index_table[c];
-		 char_width  	=  fontComic_Sans_bold_size8.width_table[char_index];
-		 char_offset 	=  fontComic_Sans_bold_size8.offset_table[char_index];
-		 pData     	= &fontComic_Sans_bold_size8.data_table[char_offset];
+		 char_height 	=  fontGeorgia_bold_size8.Height;
+		 char_index 	=  fontGeorgia_bold_size8.index_table[c];
+		 char_width  	=  fontGeorgia_bold_size8.width_table[char_index];
+		 char_offset 	=  fontGeorgia_bold_size8.offset_table[char_index];
+		 pData     	= &fontGeorgia_bold_size8.data_table[char_offset];
 	}
-	else if (font_name == Comic_sans && font_type == bold && font_size == 12 )
+	else if (font_name == Georgia && font_type == bold && font_size == 12 )
 	{
 		//UART_puts("  Detected: fontComic_Sans_bold_size12 \n") ;
-		 char_height 	=  fontComic_Sans_bold_size12.Height;
-		 char_index 	=  fontComic_Sans_bold_size12.index_table[c];
-		 char_width  	=  fontComic_Sans_bold_size12.width_table[char_index];
-		 char_offset 	=  fontComic_Sans_bold_size12.offset_table[char_index];
-		 pData     	= &fontComic_Sans_bold_size12.data_table[char_offset];
+		 char_height 	=  fontGeorgia_bold_size12.Height;
+		 char_index 	=  fontGeorgia_bold_size12.index_table[c];
+		 char_width  	=  fontGeorgia_bold_size12.width_table[char_index];
+		 char_offset 	=  fontGeorgia_bold_size12.offset_table[char_index];
+		 pData     	= &fontGeorgia_bold_size12.data_table[char_offset];
 	}
-	else if (font_name == Comic_sans && font_type == bold && font_size == 20 )
+	else if (font_name == Georgia && font_type == bold && font_size == 20 )
 	{
 		//UART_puts("  Detected: fontComic_Sans_bold_size20 \n") ;
-		 char_height 	=  fontComic_Sans_bold_size20.Height;
-		 char_index 	=  fontComic_Sans_bold_size20.index_table[c];
-		 char_width  	=  fontComic_Sans_bold_size20.width_table[char_index];
-		 char_offset 	=  fontComic_Sans_bold_size20.offset_table[char_index];
-		 pData     	= &fontComic_Sans_bold_size20.data_table[char_offset];
+		 char_height 	=  fontGeorgia_bold_size20.Height;
+		 char_index 	=  fontGeorgia_bold_size20.index_table[c];
+		 char_width  	=  fontGeorgia_bold_size20.width_table[char_index];
+		 char_offset 	=  fontGeorgia_bold_size20.offset_table[char_index];
+		 pData     	= &fontGeorgia_bold_size20.data_table[char_offset];
 	}
-	else if (font_name == Comic_sans && font_type == regular && font_size == 8 )
+	else if (font_name == Georgia && font_type == regular && font_size == 8 )
 	{
 		//UART_puts("  Detected: fontComic_Sans_reg_size20 \n") ;
-		 char_height 	=  fontComic_Sans_reg_size8.Height;
-		 char_index 	=  fontComic_Sans_reg_size8.index_table[c];
-		 char_width  	=  fontComic_Sans_reg_size8.width_table[char_index];
-		 char_offset 	=  fontComic_Sans_reg_size8.offset_table[char_index];
-		 pData     	= &fontComic_Sans_reg_size8.data_table[char_offset];
+		 char_height 	=  fontGeorgia_reg_size8.Height;
+		 char_index 	=  fontGeorgia_reg_size8.index_table[c];
+		 char_width  	=  fontGeorgia_reg_size8.width_table[char_index];
+		 char_offset 	=  fontGeorgia_reg_size8.offset_table[char_index];
+		 pData     	= &fontGeorgia_reg_size8.data_table[char_offset];
 	}
-	else if (font_name == Comic_sans && font_type == regular && font_size == 12 )
+	else if (font_name == Georgia && font_type == regular && font_size == 12 )
 	{
 		//UART_puts("  Detected: fontComic_Sans_reg_size12 \n") ;
-		 char_height 	=  fontComic_Sans_reg_size12.Height;
-		 char_index 	=  fontComic_Sans_reg_size12.index_table[c];
-		 char_width  	=  fontComic_Sans_reg_size12.width_table[char_index];
-		 char_offset 	=  fontComic_Sans_reg_size12.offset_table[char_index];
-		 pData     	= &fontComic_Sans_reg_size12.data_table[char_offset];
+		 char_height 	=  fontGeorgia_reg_size12.Height;
+		 char_index 	=  fontGeorgia_reg_size12.index_table[c];
+		 char_width  	=  fontGeorgia_reg_size12.width_table[char_index];
+		 char_offset 	=  fontGeorgia_reg_size12.offset_table[char_index];
+		 pData     	= &fontGeorgia_reg_size12.data_table[char_offset];
 	}
-	else if (font_name == Comic_sans && font_type == regular && font_size == 20 )
+	else if (font_name == Georgia && font_type == regular && font_size == 20 )
 	{
 		//UART_puts("  Detected: fontComic_Sans_reg_size20 \n") ;
-		 char_height 	=  fontComic_Sans_reg_size20.Height;
-		 char_index 	=  fontComic_Sans_reg_size20.index_table[c];
-		 char_width  	=  fontComic_Sans_reg_size20.width_table[char_index];
-		 char_offset 	=  fontComic_Sans_reg_size20.offset_table[char_index];
-		 pData     	= &fontComic_Sans_reg_size20.data_table[char_offset];
+		 char_height 	=  fontGeorgia_reg_size20.Height;
+		 char_index 	=  fontGeorgia_reg_size20.index_table[c];
+		 char_width  	=  fontGeorgia_reg_size20.width_table[char_index];
+		 char_offset 	=  fontGeorgia_reg_size20.offset_table[char_index];
+		 pData     	= &fontGeorgia_reg_size20.data_table[char_offset];
 	}
 
 	quotient  = char_width / divisor ;
 	remainder = char_width % divisor ;
 
 	if ( remainder > 0 ) quotient += 1 ;
-
 
 	for ( i=0 ; i < char_height ; i++)		//ypos
 	{
@@ -503,5 +471,109 @@ void draw_sentence( uint16_t xp, uint16_t yp, char *sent, uint8_t color, f_name 
 	}
 }
 
+/*
+ * The function Bitmap_to_VGA displays PPM (bitmap) images on a VGA screen.
+ * The images are stored in uint8_t arrays in the library "uitvoer.h".
+ * The function needs 4 parameters to display one or multiple images correctly.
+ * The first parameter determines which of the 6 images will be displayed on the VGA screen.
+ * The second parameter is the x-coordinate on the VGA screen and the starting point (x-axis) of the image.
+ * The third parameter is the y-coordinate on the VGA screen and the starting point (y-axis) of the image.
+ * The fourth parameter determines how many times the image will be displayed horizontally on the VGA screen.
+ */
+void Bitmap_to_VGA(uint8_t image_nr, uint8_t xp, uint8_t yp)
+{
+	unsigned short k=0;
+	unsigned short y_counter=0;
+	unsigned short x_counter=0;
 
+	//errormessages
+	if (IMAGE_HEIGHT > 240)
+		printf("Your image height must be shorter than 240 pixels");
+	if (IMAGE_WIDTH > 320)
+		printf("Your image width must be shorter than 320 pixels");
+	if (xp>320)
+		printf("x-coordinate must be an integer value between 0 and 320");
+	if (yp>240)
+		printf("y-coordinate must be an integer value between 0 and 240");
+
+
+switch (image_nr)
+	 {
+		case 1:
+			i=0;
+			for (y_counter=yp; y_counter<IMAGE_HEIGHT+yp; y_counter++)   //for loop for vertical pixels of image
+			{
+				for (x_counter=xp; x_counter<IMAGE_WIDTH+xp; x_counter++)  //for loop for horizontal pixels of image
+				{
+					UB_VGA_SetPixel(x_counter+IMAGE_WIDTH*k, y_counter, pijl_rechts[i]);
+					i++; // i loopt tot Image_heigth*Image_width
+				}
+			}
+		   break;
+
+		case 2:
+			i=0;
+			for (y_counter=yp; y_counter<IMAGE_HEIGHT+yp; y_counter++)   //for loop for vertical pixels of image
+			{
+				for (x_counter=xp; x_counter<IMAGE_WIDTH+xp; x_counter++)  //for loop for horizontal pixels of image
+				{
+					UB_VGA_SetPixel(x_counter+IMAGE_WIDTH*k, y_counter, pijl_links[i]);
+					i++;
+				}
+			}
+			break;
+
+		case 3:
+			i=0;
+			for (y_counter=yp; y_counter<IMAGE_HEIGHT+yp; y_counter++)   //for loop for vertical pixels of image
+			{
+				for (x_counter=xp; x_counter<IMAGE_WIDTH+xp; x_counter++)  //for loop for horizontal pixels of image
+				{
+					UB_VGA_SetPixel(x_counter+IMAGE_WIDTH*k, y_counter, pijl_omlaag[i]);
+					i++;
+				}
+			}
+		   break;
+
+		case 4:
+			i=0;
+			for (y_counter=yp; y_counter<IMAGE_HEIGHT+yp; y_counter++)   //for loop for vertical pixels of image
+			{
+				for (x_counter=xp; x_counter<IMAGE_WIDTH+xp; x_counter++)  //for loop for horizontal pixels of image
+				{
+					UB_VGA_SetPixel(x_counter+IMAGE_WIDTH*k, y_counter, pijl_omhoog[i]);
+					i++;
+				}
+			}
+		   break;
+
+		case 5:
+			i=0;
+			for (y_counter=yp; y_counter<IMAGE_HEIGHT+yp; y_counter++)   //for loop for vertical pixels of image
+			{
+				for (x_counter=xp; x_counter<IMAGE_WIDTH+xp; x_counter++)  //for loop for horizontal pixels of image
+				{
+					UB_VGA_SetPixel(x_counter+IMAGE_WIDTH*k, y_counter, smiley_cool[i]);
+					i++;
+				}
+			}
+		   break;
+
+		case 6:
+			i=0;
+			for (y_counter=yp; y_counter<IMAGE_HEIGHT+yp; y_counter++)   //for loop for vertical pixels of image
+			{
+				for (x_counter=xp; x_counter<IMAGE_WIDTH+xp; x_counter++)  //for loop for horizontal pixels of image
+				{
+					UB_VGA_SetPixel(x_counter+IMAGE_WIDTH*k, y_counter, smiley_thumb[i]);
+					i++;
+				}
+			}
+			break;
+
+		default:
+		UART_puts("invalid bitmap selected");
+		   break;
+	 }
+}
 

@@ -41,7 +41,7 @@
 #define  VGA_COL_BROWN          0xb1
 #define  VGA_COL_LIGHTBLUE      0x09
 #define  VGA_COL_LIGHTRED       0xED
-#define  VGA_COL_GRAY	          0x10
+#define  VGA_COL_GRAY	        0x92		// bin to hex 100 100 11x
 #define  VGA_COL_LIGHTMAGENTA   0xEE
 
 //--------------------------------------------------------------

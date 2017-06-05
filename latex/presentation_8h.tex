@@ -1,0 +1,158 @@
+\hypertarget{presentation_8h}{}\section{Presentation\+\_\+layer/presentation.h File Reference}
+\label{presentation_8h}\index{Presentation\+\_\+layer/presentation.\+h@{Presentation\+\_\+layer/presentation.\+h}}
+{\ttfamily \#include \char`\"{}stm32f4xx.\+h\char`\"{}}\newline
+Include dependency graph for presentation.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{presentation_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{presentation_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3b}{request} \{ \newline
+\hyperlink{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3babbd80f5b3aeae14bc5c8039d1b98b8d3}{tekst}, 
+\hyperlink{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3ba0fbae7997a439c600969aa1ebf031f4f}{ellips}, 
+\hyperlink{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3ba5308a7a69e38caca569a2a6d9772b81e}{rechthoek}, 
+\hyperlink{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3ba83421c3afc5b98ba136ea22719102c5d}{driehoek}, 
+\newline
+\hyperlink{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3badebc56589936fde95feb5e5e36d69edd}{lijn}, 
+\hyperlink{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3baa4c33f36ed157a7afdcb014a10e42d4b}{wacht}, 
+\hyperlink{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3ba998253d40e4c3cf2725ca6121cc904e4}{bitmap}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{presentation_8h_a9bcf610e4b03d34b8e4f287006a54df7}{line\+\_\+split} (char $\ast$str, char separator, char $\ast$$\ast$$\ast$array, int $\ast$length)
+\item 
+void \hyperlink{presentation_8h_a1ea3d6e2ebf24a088e98b93b870ef1ef}{Request\+\_\+\+Handling} (char $\ast$$\ast$res)
+\item 
+void \hyperlink{presentation_8h_a772b49869c6e14a71075467d854ef8a7}{put\+\_\+usage} ()
+\begin{DoxyCompactList}\small\item\em The instructions of how you should use the software with the terminal, to be printed in the terminal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3b}\label{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3b}} 
+\index{presentation.\+h@{presentation.\+h}!request@{request}}
+\index{request@{request}!presentation.\+h@{presentation.\+h}}
+\subsubsection{\texorpdfstring{request}{request}}
+{\footnotesize\ttfamily enum \hyperlink{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3b}{request}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{tekst@{tekst}!presentation.\+h@{presentation.\+h}}\index{presentation.\+h@{presentation.\+h}!tekst@{tekst}}}\mbox{\Hypertarget{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3babbd80f5b3aeae14bc5c8039d1b98b8d3}\label{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3babbd80f5b3aeae14bc5c8039d1b98b8d3}} 
+tekst&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ellips@{ellips}!presentation.\+h@{presentation.\+h}}\index{presentation.\+h@{presentation.\+h}!ellips@{ellips}}}\mbox{\Hypertarget{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3ba0fbae7997a439c600969aa1ebf031f4f}\label{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3ba0fbae7997a439c600969aa1ebf031f4f}} 
+ellips&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{rechthoek@{rechthoek}!presentation.\+h@{presentation.\+h}}\index{presentation.\+h@{presentation.\+h}!rechthoek@{rechthoek}}}\mbox{\Hypertarget{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3ba5308a7a69e38caca569a2a6d9772b81e}\label{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3ba5308a7a69e38caca569a2a6d9772b81e}} 
+rechthoek&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{driehoek@{driehoek}!presentation.\+h@{presentation.\+h}}\index{presentation.\+h@{presentation.\+h}!driehoek@{driehoek}}}\mbox{\Hypertarget{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3ba83421c3afc5b98ba136ea22719102c5d}\label{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3ba83421c3afc5b98ba136ea22719102c5d}} 
+driehoek&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{lijn@{lijn}!presentation.\+h@{presentation.\+h}}\index{presentation.\+h@{presentation.\+h}!lijn@{lijn}}}\mbox{\Hypertarget{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3badebc56589936fde95feb5e5e36d69edd}\label{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3badebc56589936fde95feb5e5e36d69edd}} 
+lijn&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{wacht@{wacht}!presentation.\+h@{presentation.\+h}}\index{presentation.\+h@{presentation.\+h}!wacht@{wacht}}}\mbox{\Hypertarget{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3baa4c33f36ed157a7afdcb014a10e42d4b}\label{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3baa4c33f36ed157a7afdcb014a10e42d4b}} 
+wacht&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bitmap@{bitmap}!presentation.\+h@{presentation.\+h}}\index{presentation.\+h@{presentation.\+h}!bitmap@{bitmap}}}\mbox{\Hypertarget{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3ba998253d40e4c3cf2725ca6121cc904e4}\label{presentation_8h_a51e6a0d2bcb8531a5e5adcd66a77aa3ba998253d40e4c3cf2725ca6121cc904e4}} 
+bitmap&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{presentation_8h_a9bcf610e4b03d34b8e4f287006a54df7}\label{presentation_8h_a9bcf610e4b03d34b8e4f287006a54df7}} 
+\index{presentation.\+h@{presentation.\+h}!line\+\_\+split@{line\+\_\+split}}
+\index{line\+\_\+split@{line\+\_\+split}!presentation.\+h@{presentation.\+h}}
+\subsubsection{\texorpdfstring{line\+\_\+split()}{line\_split()}}
+{\footnotesize\ttfamily int line\+\_\+split (\begin{DoxyParamCaption}\item[{char $\ast$}]{str,  }\item[{char}]{separator,  }\item[{char $\ast$$\ast$$\ast$}]{array,  }\item[{int $\ast$}]{length }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$str} & \\
+\hline
+{\em separator} & \\
+\hline
+{\em $\ast$$\ast$$\ast$array} & \\
+\hline
+{\em $\ast$length} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+{\bfseries Memory} 
+
+{\bfseries Milestone} 
+\end{DoxyRemark}
+\mbox{\Hypertarget{presentation_8h_a772b49869c6e14a71075467d854ef8a7}\label{presentation_8h_a772b49869c6e14a71075467d854ef8a7}} 
+\index{presentation.\+h@{presentation.\+h}!put\+\_\+usage@{put\+\_\+usage}}
+\index{put\+\_\+usage@{put\+\_\+usage}!presentation.\+h@{presentation.\+h}}
+\subsubsection{\texorpdfstring{put\+\_\+usage()}{put\_usage()}}
+{\footnotesize\ttfamily void put\+\_\+usage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The instructions of how you should use the software with the terminal, to be printed in the terminal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$res} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+{\bfseries Memory} 
+
+{\bfseries Milestone} 
+\end{DoxyRemark}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{presentation_8h_a772b49869c6e14a71075467d854ef8a7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{presentation_8h_a1ea3d6e2ebf24a088e98b93b870ef1ef}\label{presentation_8h_a1ea3d6e2ebf24a088e98b93b870ef1ef}} 
+\index{presentation.\+h@{presentation.\+h}!Request\+\_\+\+Handling@{Request\+\_\+\+Handling}}
+\index{Request\+\_\+\+Handling@{Request\+\_\+\+Handling}!presentation.\+h@{presentation.\+h}}
+\subsubsection{\texorpdfstring{Request\+\_\+\+Handling()}{Request\_Handling()}}
+{\footnotesize\ttfamily void Request\+\_\+\+Handling (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{res }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$res} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+{\bfseries Memory} 
+
+{\bfseries Milestone} 
+\end{DoxyRemark}

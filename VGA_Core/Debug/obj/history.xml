@@ -1,95 +1,89 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\ub_lib -I..\..\..\..\..\Users\Mansur\Documents\GitHub -I..\..\..\..\..\Users\Mansur\Documents -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_boot -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\font -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\Presentation_layer -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\logic_layer -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_lib -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\ports -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis -I..\..\..\..\..\Users\Mansur\Documents\GitHub\SOFTON_logic_layer\cmsis_lib\include">
-      <target file="_Arial_regular_s72.o" lastModified="15c5d99dabb">
-         <source file="..\..\..\font\_Arial_regular_s72.c" lastModified="15c539c29a6"/>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\irisj\Documents\School Doc\softon\eind\SOFTON_logic_layer-masterV2\font -I..\..\..\..\..\Users\irisj\Documents\School Doc\softon\eind\SOFTON_logic_layer-masterV2\cmsis_lib -I..\..\..\..\..\Users\irisj\Documents\School Doc\softon -I..\..\..\..\..\Users\irisj\Documents\School Doc\softon\eind\SOFTON_logic_layer-masterV2\logic_layer -I..\..\..\..\..\Users\irisj\Documents\School Doc\softon\eind\SOFTON_logic_layer-masterV2\cmsis_lib\include -I..\..\..\..\..\Users\irisj\Documents\School Doc\softon\eind\SOFTON_logic_layer-masterV2\ports -I..\..\..\..\..\Users\irisj\Documents\School Doc\softon\eind\SOFTON_logic_layer-masterV2\Presentation_layer -I..\..\..\..\..\Users\irisj\Documents\School Doc\softon\eind\SOFTON_logic_layer-masterV2 -I..\..\..\..\..\Users\irisj\Documents\School Doc\softon\eind\SOFTON_logic_layer-masterV2\cmsis -I..\..\..\..\..\Users\irisj\Documents\School Doc\softon\eind\SOFTON_logic_layer-masterV2\ub_lib -I..\..\..\..\..\Users\irisj\Documents\School Doc\softon\eind\SOFTON_logic_layer-masterV2\cmsis_boot -I..\..\..\..\..\Users\irisj\Documents\School Doc\softon\eind">
+      <target file="stm32f4xx_gpio.o" lastModified="15c781dfb05">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="15c5ee4adc0"/>
       </target>
-      <target file="stm32f4xx_gpio.o" lastModified="15c5d99d0c5">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="15c2f86d0b0"/>
+      <target file="stm32f4xx_flash.o" lastModified="15c781dfb8f">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="15c5ee4adc0"/>
       </target>
-      <target file="_Rockwell_italic_s72.o" lastModified="15c5d99c607">
-         <source file="..\..\..\font\_Rockwell_italic_s72.c" lastModified="15c539c2a06"/>
+      <target file="Times_New_Roman_bold_size12.o" lastModified="15c781df05b">
+         <source file="..\..\..\font\Times_New_Roman_bold_size12.c" lastModified="15c61a183d0"/>
       </target>
-      <target file="stm32f4xx_flash.o" lastModified="15c5d99d18a">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="15c2f86d0ab"/>
+      <target file="Times_New_Roman_bold_size20.o" lastModified="15c781df6c4">
+         <source file="..\..\..\font\Times_New_Roman_bold_size20.c" lastModified="15c61a7f440"/>
       </target>
-      <target file="stm32_ub_vga_screen.o" lastModified="15c5d99d594">
-         <source file="..\..\..\ub_lib\stm32_ub_vga_screen.c" lastModified="15c2f86d0f7"/>
+      <target file="stm32_ub_vga_screen.o" lastModified="15c781dfd62">
+         <source file="..\..\..\ub_lib\stm32_ub_vga_screen.c" lastModified="15c5ee4adc0"/>
       </target>
-      <target file="startup_stm32f4xx.o" lastModified="15c5d99c646">
-         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="15c2f86d063"/>
+      <target file="Georgia_bold_size12.o" lastModified="15c781df36d">
+         <source file="..\..\..\font\Georgia_bold_size12.c" lastModified="15c62758540"/>
       </target>
-      <target file="stm32f4xx_tim.o" lastModified="15c5d99d973">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="15c2f86d0ba"/>
+      <target file="startup_stm32f4xx.o" lastModified="15c781df5f4">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="15c5ee4adc0"/>
       </target>
-      <target file="_Arial_bold_s72.o" lastModified="15c5d99d2e2">
-         <source file="..\..\..\font\_Arial_bold_s72.c" lastModified="15c539c298e"/>
+      <target file="stm32f4xx_tim.o" lastModified="15c781dff21">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="15c5ee4adc0"/>
       </target>
-      <target file="system_stm32f4xx.o" lastModified="15c5d99d330">
-         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="15c2f86d075"/>
+      <target file="Times_New_Roman_reg_size8.o" lastModified="15c781dfe29">
+         <source file="..\..\..\font\Times_New_Roman_reg_size8.c" lastModified="15c61a8f610"/>
       </target>
-      <target file="misc.o" lastModified="15c5d99d5e9">
-         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="15c2f86d0a0"/>
+      <target file="system_stm32f4xx.o" lastModified="15c781dfbf5">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="15c5ee4a5f0"/>
       </target>
-      <target file="_Georgia_regular_s72.o" lastModified="15c5d99ccae">
-         <source file="..\..\..\font\_Georgia_regular_s72.c" lastModified="15c539c29c9"/>
+      <target file="Georgia_bold_size20.o" lastModified="15c781df7e6">
+         <source file="..\..\..\font\Georgia_bold_size20.c" lastModified="15c62759cb0"/>
       </target>
-      <target file="stm32f4xx_dma.o" lastModified="15c5d99d3cf">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma.c" lastModified="15c2f86d0a6"/>
+      <target file="misc.o" lastModified="15c781dfdcd">
+         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="15c5ee4adc0"/>
       </target>
-      <target file="_Rockwell_bold_s72.o" lastModified="15c5d99cb47">
-         <source file="..\..\..\font\_Rockwell_bold_s72.c" lastModified="15c539c29f8"/>
+      <target file="Georgia_reg_size8.o" lastModified="15c781df24d">
+         <source file="..\..\..\font\Georgia_reg_size8.c" lastModified="15c6275db30"/>
       </target>
-      <target file="_Times_New_Roman_italic_s72.o" lastModified="15c5d99d077">
-         <source file="..\..\..\font\_Times_New_Roman_italic_s72.c" lastModified="15c539c2a27"/>
+      <target file="stm32f4xx_dma.o" lastModified="15c781dfce7">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma.c" lastModified="15c5ee4adc0"/>
       </target>
-      <target file="_Times_New_Roman_bold_s72.o" lastModified="15c5d99c953">
-         <source file="..\..\..\font\_Times_New_Roman_bold_s72.c" lastModified="15c539c2a1d"/>
+      <target file="Georgia_reg_size12.o" lastModified="15c781df8f8">
+         <source file="..\..\..\font\Georgia_reg_size12.c" lastModified="15c6275bbf0"/>
       </target>
-      <target file="_Times_New_Roman_regular_s72.o" lastModified="15c5d99d731">
-         <source file="..\..\..\font\_Times_New_Roman_regular_s72.c" lastModified="15c539c2a35"/>
+      <target file="Georgia_reg_size20.o" lastModified="15c781df9eb">
+         <source file="..\..\..\font\Georgia_reg_size20.c" lastModified="15c6275cb90"/>
       </target>
-      <target file="stm32f4xx_rcc.o" lastModified="15c5d99c9c0">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="15c2f86d0b4"/>
+      <target file="presentation.o" lastModified="15c781dee19">
+         <source file="..\..\..\Presentation_layer\presentation.c" lastModified="15c77b168ee"/>
       </target>
-      <target file="uart.o" lastModified="15c5d99c4ab">
-         <source file="..\..\..\ports\uart.c" lastModified="15c2f9886e3"/>
+      <target file="stm32f4xx_rcc.o" lastModified="15c781df88b">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="15c5ee4adc0"/>
       </target>
-      <target file="_Mistral_regular_s72.o" lastModified="15c5d99c44d">
-         <source file="..\..\..\font\_Mistral_regular_s72.c" lastModified="15c539c29eb"/>
+      <target file="Times_New_Roman_reg_size12.o" lastModified="15c781df95a">
+         <source file="..\..\..\font\Times_New_Roman_reg_size12.c" lastModified="15c61a96b40"/>
       </target>
-      <target file="_Rockwell_regular_s72.o" lastModified="15c5d99c79d">
-         <source file="..\..\..\font\_Rockwell_regular_s72.c" lastModified="15c539c2a13"/>
+      <target file="uart.o" lastModified="15c781df51e">
+         <source file="..\..\..\ports\uart.c" lastModified="15c5ee4adc0"/>
       </target>
-      <target file="_Mistral_bold_s72.o" lastModified="15c5d99cf1f">
-         <source file="..\..\..\font\_Mistral_bold_s72.c" lastModified="15c539c29e0"/>
+      <target file="Times_New_Roman_reg_size20.o" lastModified="15c781dfa93">
+         <source file="..\..\..\font\Times_New_Roman_reg_size20.c" lastModified="15c61a9b190"/>
       </target>
-      <target file="syscalls.o" lastModified="15c5d99d36f">
-         <source file="..\..\..\syscalls\syscalls.c" lastModified="15c2f86d0f1"/>
+      <target file="delay.o" lastModified="15c781ded0e">
+         <source file="..\..\..\ports\delay.c" lastModified="14ff549f160"/>
       </target>
-      <target file="apllication.o" lastModified="15c5d99d123">
-         <source file="..\..\..\Presentation_layer\apllication.c" lastModified="15c2f86cfc0"/>
+      <target file="Georgia_bold_size8.o" lastModified="15c781dee79">
+         <source file="..\..\..\font\Georgia_bold_size8.c" lastModified="15c6275ac50"/>
       </target>
-      <target file="Draw_request.o" lastModified="15c5da34bb0">
-         <source file="..\..\..\logic_layer\Draw_request.c" lastModified="15c5da34900"/>
+      <target file="syscalls.o" lastModified="15c781dfc55">
+         <source file="..\..\..\syscalls\syscalls.c" lastModified="15c5ee4adc0"/>
       </target>
-      <target file="draw_char.o" lastModified="15c5d99cde7">
-         <source file="..\..\..\font\draw_char.c" lastModified="15c539c2a59"/>
+      <target file="Draw_request.o" lastModified="15c781df1dc">
+         <source file="..\..\..\logic_layer\Draw_request.c" lastModified="15c77dfe7a4"/>
       </target>
-      <target file="_Arial_italic_s72.o" lastModified="15c5d99c1eb">
-         <source file="..\..\..\font\_Arial_italic_s72.c" lastModified="15c539c299a"/>
+      <target file="Times_New_Roman_bold_size8.o" lastModified="15c781def6d">
+         <source file="..\..\..\font\Times_New_Roman_bold_size8.c" lastModified="15c61a0f730"/>
       </target>
-      <target file="_Georgia_bold_s72.o" lastModified="15c5d99d8b8">
-         <source file="..\..\..\font\_Georgia_bold_s72.c" lastModified="15c539c29b4"/>
+      <target file="main.o" lastModified="15c781df762">
+         <source file="..\..\..\main.c" lastModified="15c77b2c59b"/>
       </target>
-      <target file="_Georgia_italic_s72.o" lastModified="15c5d99d546">
-         <source file="..\..\..\font\_Georgia_italic_s72.c" lastModified="15c539c29bf"/>
-      </target>
-      <target file="main.o" lastModified="15c5d99c7eb">
-         <source file="..\..\..\main.c" lastModified="15c5d8dc1c0"/>
-      </target>
-      <target file="stm32f4xx_usart.o" lastModified="15c5d99c268">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_usart.c" lastModified="15c30235276"/>
+      <target file="stm32f4xx_usart.o" lastModified="15c781def13">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_usart.c" lastModified="15c5ee4adc0"/>
       </target>
    </processor>
 </history>
