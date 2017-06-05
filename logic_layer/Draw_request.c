@@ -1,3 +1,14 @@
+/****************************************************************
+ *!	\file		Draw_request.c
+ *	\brief		Uses ub_lib to draw figures on a vga screen.
+ *	\author		SOFTON groep 9.
+ *	\date		Mei 2017.
+ *	\version	0.1.
+ *
+ *	CPU			STM32F4;
+ *	IDE			CooCox CoIDE 1.7.x;
+ *	Module		CMSIS_BOOT, M4_CMSIS_CORE;
+ ****************************************************************/
 
 #include "main.h"
 #include "Draw_request.h"
@@ -38,6 +49,40 @@ void wait_msec(unsigned int msec)
 {
 	TIM_SetCounter(TIM3, 0);
 	while(TIM_GetCounter(TIM3)<msec);
+}
+
+void Draw_HorLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color)
+{
+	for(i=0; i<length; i++,xp++)
+		UB_VGA_SetPixel(xp, yp, color);
+}
+
+void Draw_VerLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color)
+{
+	for(i=0; i<length; i++,yp++)
+		UB_VGA_SetPixel(xp, yp, color);
+}
+
+void Draw_Rectangle(uint16_t xp, uint16_t yp, uint8_t x_length, uint8_t y_length, uint8_t line_width, uint8_t fill, uint8_t color)
+{
+	uint8_t x,y;
+	int i,j;
+	if(fill==0)
+	{
+		for(i=0;i<line_width;i++)
+		{
+			xp++; yp++;
+			x=x_length-(i*2); y=y_length-(i*2);
+			Draw_HorLine(xp,yp,x,color);
+			Draw_VerLine(xp+x,yp,y,color);
+			Draw_HorLine(xp,yp+y,x,color);
+			Draw_VerLine(xp,yp,y,color);
+		}
+	}else
+	{
+		for(j=0;j<y_length;j++)
+			Draw_HorLine(xp,yp+j,x_length,color);
+	}
 }
 
 signed int Draw_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t width, uint8_t color)
@@ -108,32 +153,6 @@ signed int Draw_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t
 		}
 		return dyabs;
 	}
-}
-
-void Draw_HorLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color) // x-coordinaat
-{
-	for(i=0; i<length; i++,xp++)
-		UB_VGA_SetPixel(xp, yp, color);
-}
-
-void Draw_VerLine(uint16_t xp, uint16_t yp, uint8_t length, uint8_t color)
-{
-	for(i=0; i<length; i++,yp++)
-		UB_VGA_SetPixel(xp+i, yp, color);
-}
-
-void Draw_EmptySquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, uint8_t color, uint8_t width_x, uint8_t width_y)
-{
-	Draw_HorLine(xp,yp,width,color);
-	Draw_VerLine(xp+width,yp,hight,color);
-	Draw_HorLine(xp,yp+hight,width,color);
-	Draw_VerLine(xp,yp,hight,color);
-}
-
-void Draw_FullSquare(uint16_t xp, uint16_t yp, uint8_t width, uint8_t hight, uint8_t color, uint8_t width_y)
-{
-	for(i=0;i<hight;i++,yp++)
-		Draw_HorLine(xp,yp,width,color);
 }
 
 void Draw_Triangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t x3, uint16_t y3, int fill, uint8_t color)
@@ -319,175 +338,173 @@ void Bitmap_to_VGA(uint8_t xp, uint8_t yp, uint8_t repeat)
 
 }
 
-uint16_t draw_character(uint16_t xp, uint16_t yp, int c, uint8_t color, f_name font_name, f_type font_type, uint8_t font_size, uint8_t bg)
-{
-    	uint8_t  i, j , k, bit = 0 ;
-	UCHAR  	pTemp ;
-	UCHAR  *pData ;
-	USHORT 	char_height;
-	UCHAR  	char_index;
-	UCHAR  	char_width;
-	ULONG  	char_offset;
-
-	USHORT quotient  = 1 ;
-	USHORT divisor   = 8 ;
-    	USHORT remainder = 0 ;
-
-	extern const BFCLATIN_FONT fontTimes_New_Roman_bold_size8;		//take all font structs
-	extern const BFCLATIN_FONT fontTimes_New_Roman_bold_size12;
-	extern const BFCLATIN_FONT fontTimes_New_Roman_bold_size20;
-	extern const BFCLATIN_FONT fontTimes_New_Roman_reg_size8;
-	extern const BFCLATIN_FONT fontTimes_New_Roman_reg_size12;
-	extern const BFCLATIN_FONT fontTimes_New_Roman_reg_size20;
-	extern const BFCLATIN_FONT fontComic_Sans_bold_size8;
-  	extern const BFCLATIN_FONT fontComic_Sans_bold_size12;
-   	extern const BFCLATIN_FONT fontComic_Sans_bold_size20;
-   	extern const BFCLATIN_FONT fontComic_Sans_reg_size8;
-   	extern const BFCLATIN_FONT fontComic_Sans_reg_size12;
-   	extern const BFCLATIN_FONT fontComic_Sans_reg_size20;
-
-
-	if (font_name == Times_New_Roman && font_type == bold && font_size == 8 )
-	{
-		//UART_puts("  Detected: fontTimes_New_Roman_bold_size8 \n") ;
-		 char_height 	=  fontTimes_New_Roman_bold_size8.Height;
-		 char_index 	=  fontTimes_New_Roman_bold_size8.index_table[c];
-		 char_width  	=  fontTimes_New_Roman_bold_size8.width_table[char_index];
-		 char_offset 	=  fontTimes_New_Roman_bold_size8.offset_table[char_index];
-		 pData     	= &fontTimes_New_Roman_bold_size8.data_table[char_offset];
-	}
-	else if (font_name == Times_New_Roman && font_type == bold && font_size == 12  )
-	{
-		//UART_puts("  Detected: fontTimes_New_Roman_bold_size12 \n") ;
-		 char_height 	=  fontTimes_New_Roman_bold_size12.Height;
-		 char_index 	=  fontTimes_New_Roman_bold_size12.index_table[c];
-		 char_width  	=  fontTimes_New_Roman_bold_size12.width_table[char_index];
-		 char_offset 	=  fontTimes_New_Roman_bold_size12.offset_table[char_index];
-		 pData     	= &fontTimes_New_Roman_bold_size12.data_table[char_offset];
-	}
-	else if (font_name == Times_New_Roman && font_type == bold && font_size == 20 )
-	{
-		//UART_puts("  Detected: fontTimes_New_Roman_bold_size20 \n") ;
-		 char_height 	=  fontTimes_New_Roman_bold_size20.Height;
-		 char_index 	=  fontTimes_New_Roman_bold_size20.index_table[c];
-		 char_width  	=  fontTimes_New_Roman_bold_size20.width_table[char_index];
-		 char_offset 	=  fontTimes_New_Roman_bold_size20.offset_table[char_index];
-		 pData     	= &fontTimes_New_Roman_bold_size20.data_table[char_offset];
-	}
-	else if (font_name == Times_New_Roman && font_type == regular && font_size == 8 )
-	{
-		//UART_puts("  Detected: fontTimes_New_Roman_reg_size8 \n") ;
-		 char_height 	=  fontTimes_New_Roman_reg_size8.Height;
-		 char_index 	=  fontTimes_New_Roman_reg_size8.index_table[c];
-		 char_width  	=  fontTimes_New_Roman_reg_size8.width_table[char_index];
-		 char_offset 	=  fontTimes_New_Roman_reg_size8.offset_table[char_index];
-		 pData     	= &fontTimes_New_Roman_reg_size8.data_table[char_offset];
-	}
-	else if (font_name == Times_New_Roman && font_type == regular && font_size == 12 )
-	{
-		//UART_puts("  Detected: fontTimes_New_Roman_reg_size12 \n") ;
-		 char_height 	=  fontTimes_New_Roman_reg_size12.Height;
-		 char_index 	=  fontTimes_New_Roman_reg_size12.index_table[c];
-		 char_width  	=  fontTimes_New_Roman_reg_size12.width_table[char_index];
-		 char_offset 	=  fontTimes_New_Roman_reg_size12.offset_table[char_index];
-		 pData     	= &fontTimes_New_Roman_reg_size12.data_table[char_offset];
-	}
-	else if ( font_name == Times_New_Roman && font_type == regular && font_size == 20 )
-	{
-		//UART_puts("  Detected: fontTimes_New_Roman_bold_size20 \n") ;
-		 char_height 	=  fontTimes_New_Roman_reg_size20.Height;
-		 char_index 	=  fontTimes_New_Roman_reg_size20.index_table[c];
-		 char_width  	=  fontTimes_New_Roman_reg_size20.width_table[char_index];
-		 char_offset 	=  fontTimes_New_Roman_reg_size20.offset_table[char_index];
-		 pData     	= &fontTimes_New_Roman_reg_size20.data_table[char_offset];
-	}
-
-
-
-	else if (font_name == Comic_sans && font_type == bold && font_size == 8 )
-	{
-		//UART_puts("  Detected: fontComic_Sans_bold_size8 \n") ;
-		 char_height 	=  fontComic_Sans_bold_size8.Height;
-		 char_index 	=  fontComic_Sans_bold_size8.index_table[c];
-		 char_width  	=  fontComic_Sans_bold_size8.width_table[char_index];
-		 char_offset 	=  fontComic_Sans_bold_size8.offset_table[char_index];
-		 pData     	= &fontComic_Sans_bold_size8.data_table[char_offset];
-	}
-	else if (font_name == Comic_sans && font_type == bold && font_size == 12 )
-	{
-		//UART_puts("  Detected: fontComic_Sans_bold_size12 \n") ;
-		 char_height 	=  fontComic_Sans_bold_size12.Height;
-		 char_index 	=  fontComic_Sans_bold_size12.index_table[c];
-		 char_width  	=  fontComic_Sans_bold_size12.width_table[char_index];
-		 char_offset 	=  fontComic_Sans_bold_size12.offset_table[char_index];
-		 pData     	= &fontComic_Sans_bold_size12.data_table[char_offset];
-	}
-	else if (font_name == Comic_sans && font_type == bold && font_size == 20 )
-	{
-		//UART_puts("  Detected: fontComic_Sans_bold_size20 \n") ;
-		 char_height 	=  fontComic_Sans_bold_size20.Height;
-		 char_index 	=  fontComic_Sans_bold_size20.index_table[c];
-		 char_width  	=  fontComic_Sans_bold_size20.width_table[char_index];
-		 char_offset 	=  fontComic_Sans_bold_size20.offset_table[char_index];
-		 pData     	= &fontComic_Sans_bold_size20.data_table[char_offset];
-	}
-	else if (font_name == Comic_sans && font_type == regular && font_size == 8 )
-	{
-		//UART_puts("  Detected: fontComic_Sans_reg_size20 \n") ;
-		 char_height 	=  fontComic_Sans_reg_size8.Height;
-		 char_index 	=  fontComic_Sans_reg_size8.index_table[c];
-		 char_width  	=  fontComic_Sans_reg_size8.width_table[char_index];
-		 char_offset 	=  fontComic_Sans_reg_size8.offset_table[char_index];
-		 pData     	= &fontComic_Sans_reg_size8.data_table[char_offset];
-	}
-	else if (font_name == Comic_sans && font_type == regular && font_size == 12 )
-	{
-		//UART_puts("  Detected: fontComic_Sans_reg_size12 \n") ;
-		 char_height 	=  fontComic_Sans_reg_size12.Height;
-		 char_index 	=  fontComic_Sans_reg_size12.index_table[c];
-		 char_width  	=  fontComic_Sans_reg_size12.width_table[char_index];
-		 char_offset 	=  fontComic_Sans_reg_size12.offset_table[char_index];
-		 pData     	= &fontComic_Sans_reg_size12.data_table[char_offset];
-	}
-	else if (font_name == Comic_sans && font_type == regular && font_size == 20 )
-	{
-		//UART_puts("  Detected: fontComic_Sans_reg_size20 \n") ;
-		 char_height 	=  fontComic_Sans_reg_size20.Height;
-		 char_index 	=  fontComic_Sans_reg_size20.index_table[c];
-		 char_width  	=  fontComic_Sans_reg_size20.width_table[char_index];
-		 char_offset 	=  fontComic_Sans_reg_size20.offset_table[char_index];
-		 pData     	= &fontComic_Sans_reg_size20.data_table[char_offset];
-	}
-
-	quotient  = char_width / divisor ;
-	remainder = char_width % divisor ;
-
-	if ( remainder > 0 ) quotient += 1 ;
-
-
-	for ( i=0 ; i < char_height ; i++)		//ypos
-	{
-
-		for ( j = 0 ; j < quotient ; j++ ) // per byte per character line(height)
-		{
-			pTemp = *(pData + (i * quotient) + j ) ; //inhoud juiste byte
-			for ( k = 0  ; k < divisor ; k++ ) // per aantal bits per data
-			{
-				bit = (pTemp >> (divisor-(k+1))) & 0b1;	//get hex font character val to separated bits.
-				if ((j*divisor)+k >= char_width) break;
-				if (bit == 1)	{									// if true fill screen else put in background.
-					UB_VGA_SetPixel((xp+(j*divisor)+k),(yp+i), color);
-				}
-				else	{
-					UB_VGA_SetPixel((xp+(j*divisor)+k),(yp+i), bg);
-				}
-			}
-		}
-	}
-	return (uint16_t)char_width;
-}
-
-
+//uint16_t draw_character(uint16_t xp, uint16_t yp, int c, uint8_t color, f_name font_name, f_type font_type, uint8_t font_size, uint8_t bg)
+//{
+//    	uint8_t  i, j , k, bit = 0 ;
+//	UCHAR  	pTemp ;
+//	UCHAR  *pData ;
+//	USHORT 	char_height;
+//	UCHAR  	char_index;
+//	UCHAR  	char_width;
+//	ULONG  	char_offset;
+//
+//	USHORT quotient  = 1 ;
+//	USHORT divisor   = 8 ;
+//    	USHORT remainder = 0 ;
+//
+//	extern const BFCLATIN_FONT fontTimes_New_Roman_bold_size8;		//take all font structs
+//	extern const BFCLATIN_FONT fontTimes_New_Roman_bold_size12;
+//	extern const BFCLATIN_FONT fontTimes_New_Roman_bold_size20;
+//	extern const BFCLATIN_FONT fontTimes_New_Roman_reg_size8;
+//	extern const BFCLATIN_FONT fontTimes_New_Roman_reg_size12;
+//	extern const BFCLATIN_FONT fontTimes_New_Roman_reg_size20;
+//	extern const BFCLATIN_FONT fontComic_Sans_bold_size8;
+//  	extern const BFCLATIN_FONT fontComic_Sans_bold_size12;
+//   	extern const BFCLATIN_FONT fontComic_Sans_bold_size20;
+//   	extern const BFCLATIN_FONT fontComic_Sans_reg_size8;
+//   	extern const BFCLATIN_FONT fontComic_Sans_reg_size12;
+//   	extern const BFCLATIN_FONT fontComic_Sans_reg_size20;
+//
+//
+//	if (font_name == Times_New_Roman && font_type == bold && font_size == 8 )
+//	{
+//		//UART_puts("  Detected: fontTimes_New_Roman_bold_size8 \n") ;
+//		 char_height 	=  fontTimes_New_Roman_bold_size8.Height;
+//		 char_index 	=  fontTimes_New_Roman_bold_size8.index_table[c];
+//		 char_width  	=  fontTimes_New_Roman_bold_size8.width_table[char_index];
+//		 char_offset 	=  fontTimes_New_Roman_bold_size8.offset_table[char_index];
+//		 pData     	= &fontTimes_New_Roman_bold_size8.data_table[char_offset];
+//	}
+//	else if (font_name == Times_New_Roman && font_type == bold && font_size == 12  )
+//	{
+//		//UART_puts("  Detected: fontTimes_New_Roman_bold_size12 \n") ;
+//		 char_height 	=  fontTimes_New_Roman_bold_size12.Height;
+//		 char_index 	=  fontTimes_New_Roman_bold_size12.index_table[c];
+//		 char_width  	=  fontTimes_New_Roman_bold_size12.width_table[char_index];
+//		 char_offset 	=  fontTimes_New_Roman_bold_size12.offset_table[char_index];
+//		 pData     	= &fontTimes_New_Roman_bold_size12.data_table[char_offset];
+//	}
+//	else if (font_name == Times_New_Roman && font_type == bold && font_size == 20 )
+//	{
+//		//UART_puts("  Detected: fontTimes_New_Roman_bold_size20 \n") ;
+//		 char_height 	=  fontTimes_New_Roman_bold_size20.Height;
+//		 char_index 	=  fontTimes_New_Roman_bold_size20.index_table[c];
+//		 char_width  	=  fontTimes_New_Roman_bold_size20.width_table[char_index];
+//		 char_offset 	=  fontTimes_New_Roman_bold_size20.offset_table[char_index];
+//		 pData     	= &fontTimes_New_Roman_bold_size20.data_table[char_offset];
+//	}
+//	else if (font_name == Times_New_Roman && font_type == regular && font_size == 8 )
+//	{
+//		//UART_puts("  Detected: fontTimes_New_Roman_reg_size8 \n") ;
+//		 char_height 	=  fontTimes_New_Roman_reg_size8.Height;
+//		 char_index 	=  fontTimes_New_Roman_reg_size8.index_table[c];
+//		 char_width  	=  fontTimes_New_Roman_reg_size8.width_table[char_index];
+//		 char_offset 	=  fontTimes_New_Roman_reg_size8.offset_table[char_index];
+//		 pData     	= &fontTimes_New_Roman_reg_size8.data_table[char_offset];
+//	}
+//	else if (font_name == Times_New_Roman && font_type == regular && font_size == 12 )
+//	{
+//		//UART_puts("  Detected: fontTimes_New_Roman_reg_size12 \n") ;
+//		 char_height 	=  fontTimes_New_Roman_reg_size12.Height;
+//		 char_index 	=  fontTimes_New_Roman_reg_size12.index_table[c];
+//		 char_width  	=  fontTimes_New_Roman_reg_size12.width_table[char_index];
+//		 char_offset 	=  fontTimes_New_Roman_reg_size12.offset_table[char_index];
+//		 pData     	= &fontTimes_New_Roman_reg_size12.data_table[char_offset];
+//	}
+//	else if ( font_name == Times_New_Roman && font_type == regular && font_size == 20 )
+//	{
+//		//UART_puts("  Detected: fontTimes_New_Roman_bold_size20 \n") ;
+//		 char_height 	=  fontTimes_New_Roman_reg_size20.Height;
+//		 char_index 	=  fontTimes_New_Roman_reg_size20.index_table[c];
+//		 char_width  	=  fontTimes_New_Roman_reg_size20.width_table[char_index];
+//		 char_offset 	=  fontTimes_New_Roman_reg_size20.offset_table[char_index];
+//		 pData     	= &fontTimes_New_Roman_reg_size20.data_table[char_offset];
+//	}
+//
+//
+//
+//	else if (font_name == Comic_sans && font_type == bold && font_size == 8 )
+//	{
+//		//UART_puts("  Detected: fontComic_Sans_bold_size8 \n") ;
+//		 char_height 	=  fontComic_Sans_bold_size8.Height;
+//		 char_index 	=  fontComic_Sans_bold_size8.index_table[c];
+//		 char_width  	=  fontComic_Sans_bold_size8.width_table[char_index];
+//		 char_offset 	=  fontComic_Sans_bold_size8.offset_table[char_index];
+//		 pData     	= &fontComic_Sans_bold_size8.data_table[char_offset];
+//	}
+//	else if (font_name == Comic_sans && font_type == bold && font_size == 12 )
+//	{
+//		//UART_puts("  Detected: fontComic_Sans_bold_size12 \n") ;
+//		 char_height 	=  fontComic_Sans_bold_size12.Height;
+//		 char_index 	=  fontComic_Sans_bold_size12.index_table[c];
+//		 char_width  	=  fontComic_Sans_bold_size12.width_table[char_index];
+//		 char_offset 	=  fontComic_Sans_bold_size12.offset_table[char_index];
+//		 pData     	= &fontComic_Sans_bold_size12.data_table[char_offset];
+//	}
+//	else if (font_name == Comic_sans && font_type == bold && font_size == 20 )
+//	{
+//		//UART_puts("  Detected: fontComic_Sans_bold_size20 \n") ;
+//		 char_height 	=  fontComic_Sans_bold_size20.Height;
+//		 char_index 	=  fontComic_Sans_bold_size20.index_table[c];
+//		 char_width  	=  fontComic_Sans_bold_size20.width_table[char_index];
+//		 char_offset 	=  fontComic_Sans_bold_size20.offset_table[char_index];
+//		 pData     	= &fontComic_Sans_bold_size20.data_table[char_offset];
+//	}
+//	else if (font_name == Comic_sans && font_type == regular && font_size == 8 )
+//	{
+//		//UART_puts("  Detected: fontComic_Sans_reg_size20 \n") ;
+//		 char_height 	=  fontComic_Sans_reg_size8.Height;
+//		 char_index 	=  fontComic_Sans_reg_size8.index_table[c];
+//		 char_width  	=  fontComic_Sans_reg_size8.width_table[char_index];
+//		 char_offset 	=  fontComic_Sans_reg_size8.offset_table[char_index];
+//		 pData     	= &fontComic_Sans_reg_size8.data_table[char_offset];
+//	}
+//	else if (font_name == Comic_sans && font_type == regular && font_size == 12 )
+//	{
+//		//UART_puts("  Detected: fontComic_Sans_reg_size12 \n") ;
+//		 char_height 	=  fontComic_Sans_reg_size12.Height;
+//		 char_index 	=  fontComic_Sans_reg_size12.index_table[c];
+//		 char_width  	=  fontComic_Sans_reg_size12.width_table[char_index];
+//		 char_offset 	=  fontComic_Sans_reg_size12.offset_table[char_index];
+//		 pData     	= &fontComic_Sans_reg_size12.data_table[char_offset];
+//	}
+//	else if (font_name == Comic_sans && font_type == regular && font_size == 20 )
+//	{
+//		//UART_puts("  Detected: fontComic_Sans_reg_size20 \n") ;
+//		 char_height 	=  fontComic_Sans_reg_size20.Height;
+//		 char_index 	=  fontComic_Sans_reg_size20.index_table[c];
+//		 char_width  	=  fontComic_Sans_reg_size20.width_table[char_index];
+//		 char_offset 	=  fontComic_Sans_reg_size20.offset_table[char_index];
+//		 pData     	= &fontComic_Sans_reg_size20.data_table[char_offset];
+//	}
+//
+//	quotient  = char_width / divisor ;
+//	remainder = char_width % divisor ;
+//
+//	if ( remainder > 0 ) quotient += 1 ;
+//
+//
+//	for ( i=0 ; i < char_height ; i++)		//ypos
+//	{
+//
+//		for ( j = 0 ; j < quotient ; j++ ) // per byte per character line(height)
+//		{
+//			pTemp = *(pData + (i * quotient) + j ) ; //inhoud juiste byte
+//			for ( k = 0  ; k < divisor ; k++ ) // per aantal bits per data
+//			{
+//				bit = (pTemp >> (divisor-(k+1))) & 0b1;	//get hex font character val to separated bits.
+//				if ((j*divisor)+k >= char_width) break;
+//				if (bit == 1)	{									// if true fill screen else put in background.
+//					UB_VGA_SetPixel((xp+(j*divisor)+k),(yp+i), color);
+//				}
+//				else	{
+//					UB_VGA_SetPixel((xp+(j*divisor)+k),(yp+i), bg);
+//				}
+//			}
+//		}
+//	}
+//	return (uint16_t)char_width;
+//}
 
 void draw_sentence( uint16_t xp, uint16_t yp, char *sent, uint8_t color, f_name font_name, f_type font_type, uint8_t font_size, uint8_t bg)
 {
