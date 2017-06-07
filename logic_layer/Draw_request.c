@@ -438,12 +438,12 @@ uint16_t draw_character(uint16_t xp, uint16_t yp, int c, uint8_t color, f_name f
 
 		for ( j = 0 ; j < quotient ; j++ ) // per byte per character line(height)
 		{
-			pTemp = *(pData + (i * quotient) + j ) ; //inhoud juiste byte
-			for ( k = 0  ; k < divisor ; k++ ) // per aantal bits per data
+			pTemp = *(pData + (i * quotient) + j ) ; 		//content correct byte
+			for ( k = 0  ; k < divisor ; k++ ) 			//Per number of bits per data
 			{
-				bit = (pTemp >> (divisor-(k+1))) & 0b1;	//get hex font character val to separated bits.
+				bit = (pTemp >> (divisor-(k+1))) & 0b1;		//get hex font character val to separated bits.
 				if ((j*divisor)+k >= char_width) break;
-				if (bit == 1)	{									// if true fill screen else put in background.
+				if (bit == 1)	{				//if true fill screen else put in background.
 					UB_VGA_SetPixel((xp+(j*divisor)+k),(yp+i), color);
 				}
 				else	{
@@ -464,8 +464,8 @@ void draw_sentence( uint16_t xp, uint16_t yp, char *sent, uint8_t color, f_name 
 	uint16_t new_charW;
 	int sent_length = strlen(sent);
 
-	for ( j=0 ; j <= sent_length ; j++)
-	{
+	for ( j=0 ; j <= sent_length ; j++)			//separate all characters from sentence string and put them one-by-one on screen
+	{							//draw_character puts characters on screen
 		new_charW = draw_character(xp+=old_charW, yp, *(sent+j), color, font_name, font_type, font_size,  bg);
 		old_charW = new_charW;
 	}
