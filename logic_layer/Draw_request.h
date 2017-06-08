@@ -40,7 +40,7 @@
  */
 typedef enum
  {
- 	Times_New_Roman, Georgia				// 4
+ 	Times_New_Roman, Georgia				// 3
  } f_name ;
 
 typedef enum
@@ -159,23 +159,35 @@ void Draw_Triangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t 
  */
 void Set_Single_Pixel(uint16_t xp, uint16_t yp, uint8_t colour);
 /*!	\fn 	uint16_t draw_character(uint16_t xp, uint16_t yp, int char_input, uint8_t color, f_name font_name, f_type font_type, uint8_t font_size, uint8_t bg)
- *	\brief 	Draw a character on the VGA screen.
+ *	\brief  fill single pixel in screen.
  *	\param 	xp x value of the pixel coordinate (0 to 320).
  *	\param 	yp y value of the pixel coordinate (0 to 240).
  *	\param 	color color of the pixel (0x00 to 0xFF).
- *	\param	font_name
- *	\param	font_type
- *	\param	font_size
- *	\param	bg background color.
- *	\return	char_width
+ *	\return	0
  *	\remark \b Memory
  *	\remark \b Milestone
  */
 uint16_t draw_character(uint16_t xp, uint16_t yp, int char_input, uint8_t color, f_name font_name, f_type font_type, uint8_t font_size, uint8_t bg);
 /*!	\fn 	void draw_sentence( uint16_t xp, uint16_t yp, char *sent,uint8_t color, f_name font_name, f_type font_type, uint8_t font_size, uint8_t bg)
- *	\brief 	Draw multiple characyers on the VGA screen.
+ *	\brief 	Draw single characters on the VGA screen.
  *	\param 	xp x value of the pixel coordinate (0 to 320).
  *	\param 	yp y value of the pixel coordinate (0 to 240).
+ *	\param 	char_input value of the character in integer. 0 to 127(not all ASCII character are used to save ROM)
+ *	\param 	color color of the pixel (0x00 to 0xFF).
+ *	\param	 font_name
+ *	\param	 font_type
+ *	\param	 font_size
+ *	\param	 bg background color.
+ *	\return	char_width
+ *	\remark \b Memory
+ *	\remark \b Milestone
+ */
+void draw_sentence( uint16_t xp, uint16_t yp, char *sent,uint8_t color, f_name font_name, f_type font_type, uint8_t font_size, uint8_t bg);
+/*!	\fn 	void draw_sentence( uint16_t xp, uint16_t yp, char *sent,uint8_t color, f_name font_name, f_type font_type, uint8_t font_size, uint8_t bg)
+ *	\brief 	Split string into character integers so function draw_character knows which character to draw 
+ *	\param 	xp x value of the pixel coordinate (0 to 320).
+ *	\param 	yp y value of the pixel coordinate (0 to 240).
+ *	\param  sent pointer to input text string
  *	\param 	color color of the pixel (0x00 to 0xFF).
  *	\param	font_name
  *	\param	font_type
@@ -184,6 +196,4 @@ uint16_t draw_character(uint16_t xp, uint16_t yp, int char_input, uint8_t color,
  *	\remark \b Memory
  *	\remark \b Milestone
  */
-void draw_sentence( uint16_t xp, uint16_t yp, char *sent,uint8_t color, f_name font_name, f_type font_type, uint8_t font_size, uint8_t bg);
-
 #endif // DRAW_REQUEST_H
