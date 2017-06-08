@@ -39,20 +39,14 @@ typedef enum
  *****************************************************************
  */
 
-/*!	\fn 	int line_split(char *str, char separator, char ***array, int *length)
- *	\brief 	.
+int line_split(char *str, char separator, char ***array, int *length);
+/*!	\fn 	void Request_Handling(char** res)
+ *	\brief 	splits string input into array pointers
  *	\param 	*str
  *	\param 	separator
  *	\param	***array
  *	\param	*length
- *	\return	0
- *	\remark \b Memory
- *	\remark \b Milestone
- */
-int line_split(char *str, char separator, char ***array, int *length);
-/*!	\fn 	void Request_Handling(char** res)
- *	\brief 	.
- *	\param 	**res
+ *	\return	pointer to array, count of elements in request string
  *	\remark \b Memory
  *	\remark \b Milestone
  */
